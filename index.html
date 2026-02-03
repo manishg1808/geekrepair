@@ -45,6 +45,30 @@
     .banner-border { border: 2px solid rgba(249, 115, 22, 0.3); }
     .hero-main-img { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08), 0 0 60px -10px rgba(249, 115, 22, 0.3); }
     .footer-pattern { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 32px 32px; }
+    .plans-section-pattern {
+      position: relative;
+      overflow: hidden;
+    }
+    .plans-section-pattern::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+        radial-gradient(circle at 1px 1px, rgba(249,115,22,0.12) 1px, transparent 0);
+      background-size: 40px 40px, 40px 40px, 20px 20px;
+      pointer-events: none;
+    }
+    .plans-section-pattern::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: radial-gradient(ellipse 100% 70% at 50% 0%, rgba(249,115,22,0.12) 0%, transparent 55%), radial-gradient(ellipse 70% 50% at 100% 50%, rgba(249,115,22,0.08) 0%, transparent 45%), radial-gradient(ellipse 70% 50% at 0% 50%, rgba(249,115,22,0.08) 0%, transparent 45%);
+      pointer-events: none;
+    }
     .footer-link { position: relative; }
     .footer-link::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 1px; background: #f97316; transition: width 0.2s ease; }
     .footer-link:hover::after { width: 100%; }
@@ -515,13 +539,13 @@
             </span>
             1-855-242-6660
           </a>
-          <button type="button" id="open-callback-modal" class="btn-primary text-xs px-5 py-2.5 cursor-pointer">Call Back Request</button>
+          <button type="button" class="open-consultation-modal btn-primary text-xs px-5 py-2.5 cursor-pointer">Free Schedule</button>
         </div>
         <div class="flex lg:hidden items-center gap-2">
           <a href="tel:18552426660" class="flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Call">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
           </a>
-          <button type="button" class="open-callback-modal-btn btn-primary text-xs px-4 py-2.5 cursor-pointer shrink-0">Call Back Request</button>
+          <button type="button" class="open-consultation-modal btn-primary text-xs px-4 py-2.5 cursor-pointer shrink-0">Free Schedule</button>
           <button id="menu-btn" class="flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Menu">
             <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -545,7 +569,7 @@
             <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
             1-855-242-6660
           </a>
-          <button type="button" class="open-callback-modal-btn btn-primary text-xs mt-2 w-full sm:w-auto cursor-pointer">Call Back Request</button>
+          <button type="button" class="open-consultation-modal btn-primary text-xs mt-2 w-full sm:w-auto cursor-pointer">Free Schedule</button>
         </div>
       </div>
     </div>
@@ -572,16 +596,16 @@
           <div class="grid grid-cols-12 gap-2 sm:gap-3 items-end w-full mx-auto" style="min-height: 320px;">
             <div class="col-span-4 flex flex-col gap-2 sm:gap-3 min-h-[260px] sm:min-h-[320px] lg:min-h-[380px]">
               <div class="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl hero-glow flex-1 min-h-0 bg-darkCard">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=80" alt="Laptop repair - Geek Repair" class="absolute inset-0 w-full h-full object-cover" loading="eager">
+                <img src="assest/3.png" alt="Tech services - Geek Repair" class="absolute inset-0 w-full h-full object-cover" loading="eager">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
               </div>
               <div class="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl hero-glow flex-1 min-h-0 bg-darkCard">
-                <img src="https://images.unsplash.com/photo-1591238372338-22d30c883a86?w=400&q=80" alt="Computer hardware - Geek Repair" class="absolute inset-0 w-full h-full object-cover" loading="eager">
+                <img src="assest/2.png" alt="Tech solutions - Geek Repair" class="absolute inset-0 w-full h-full object-cover" loading="eager">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
               </div>
             </div>
             <div class="col-span-8 relative rounded-3xl overflow-hidden border border-white/10 bg-darkCard/50 hero-main-img h-[280px] sm:h-[340px] lg:h-[400px] -mb-6 sm:-mb-8 lg:-mb-10">
-              <img src="https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?w=700&q=85" alt="IT support - Geek Repair" class="w-full h-full object-cover object-center">
+              <img src="assest/1.png" alt="Tech Resolve services - Geek Repair" class="w-full h-full object-cover object-center">
               <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
               <div class="absolute bottom-4 left-4 right-4 flex items-center gap-2 pointer-events-none">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/90 text-black text-xs font-semibold backdrop-blur-sm">IT Support</span>
@@ -686,8 +710,8 @@
       <!-- Hero image strip -->
       <div class="why-choose-hero-img relative rounded-3xl overflow-hidden mb-14">
         <img
-          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=85"
-          alt="Professional IT support and technology - Geek Repair"
+          src="assest/4.png"
+          alt="24/7 Availability, Top Guide, Advanced Troubleshooting - Geek Repair"
           class="w-full h-56 sm:h-72 md:h-80 object-cover"
           loading="lazy"
         />
@@ -936,23 +960,8 @@
             </div>
           </div>
         </div>
-        <div class="relative flex justify-center">
-          <div class="devices-image relative rounded-3xl overflow-hidden border border-white/10 bg-black/40 p-4 sm:p-6 mx-auto w-full max-w-md sm:max-w-lg">
-            <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/3]">
-              <img src="https://images.unsplash.com/photo-1591238372338-22d30c883a86?w=900&q=80" alt="Computer hardware and devices - Wi-Fi, laptops, printers, servers we support" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-            </div>
-            <div class="mt-6 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10">
-              <div class="flex items-center gap-3 text-white">
-                <span class="w-10 h-10 rounded-xl bg-primary/20 text-primary flex items-center justify-center"><i class="ri-cpu-line"></i></span>
-                <div>
-                  <p class="text-sm font-semibold">All‑in‑one coverage</p>
-                  <p class="text-xs text-white/70">From Wi‑Fi to servers and security</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="absolute -z-10 -bottom-6 -right-6 w-40 h-40 rounded-full bg-primary/10 blur-3xl"></div>
+        <div class="relative flex justify-center lg:justify-end">
+          <img src="assest/5.png" alt="Geek Repair - Your Tech, Fixed" class="w-full max-w-md object-contain" loading="lazy" />
         </div>
       </div>
     </div>
@@ -1038,13 +1047,12 @@
   </section>
 
   <!-- Plans -->
-  <section id="plans" class="py-16 md:py-20 section-gradient-lr">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+  <section id="plans" class="py-16 md:py-20 section-gradient-lr plans-section-pattern relative">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
       <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">Choose the Right Plan for Your Business</h2>
       <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">Comprehensive IT support plans. GeekPremiumMB: $225/month for micro businesses (up to 3 employees).</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="relative rounded-2xl border-2 border-primary p-8 overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-br from-primary/15 via-[#0d0805] to-black"></div>
           <span class="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-primary text-black text-xs font-bold shadow-lg">Most Popular</span>
           <div class="relative">
             <h3 class="text-xl font-bold text-white mb-1">PremiumMB</h3>
@@ -1060,7 +1068,6 @@
           </div>
         </div>
         <div class="relative rounded-2xl border-2 border-primary/40 p-8 overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-br from-black via-[#0d0805] to-black"></div>
           <div class="relative">
             <h3 class="text-xl font-bold text-white mb-1">Premium</h3>
             <p class="text-2xl font-bold text-primary mb-4">$75/month per person</p>
@@ -1075,7 +1082,6 @@
           </div>
         </div>
         <div class="relative rounded-2xl border-2 border-primary/40 p-8 overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-br from-black via-[#0d0805] to-black"></div>
           <div class="relative">
             <h3 class="text-xl font-bold text-white mb-1">Premium+</h3>
             <p class="text-2xl font-bold text-primary mb-4">$95/month per person</p>
@@ -1264,7 +1270,10 @@
         <p class="text-white/80 text-xs font-medium uppercase tracking-[0.2em] mb-1">Free consultation</p>
         <h3 class="text-xl md:text-2xl font-extrabold text-white mb-2 tracking-tight">Ready to get started?</h3>
         <p class="text-white/70 text-sm max-w-xl mx-auto mb-4">Talk to our experts today. No obligation.</p>
-        <button type="button" class="open-consultation-modal btn-primary text-sm px-6 py-2.5 cursor-pointer">Schedule Free Consultation <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <button type="button" class="open-consultation-modal btn-primary text-sm px-6 py-2.5 cursor-pointer">Schedule Free Consultation <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
+          <a href="tel:18552426660" class="inline-flex items-center gap-2 text-sm px-6 py-2.5 rounded-lg bg-white/10 border border-white/30 text-white hover:bg-primary hover:border-primary transition-all cursor-pointer"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> Call Now</a>
+        </div>
       </div>
     </div>
     <div class="footer-divider"></div>
@@ -1807,10 +1816,6 @@
       callbackModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
-    document.getElementById('open-callback-modal').addEventListener('click', openCallbackModal);
-    document.querySelectorAll('.open-callback-modal-btn').forEach(function(btn) {
-      btn.addEventListener('click', openCallbackModal);
-    });
     callbackModalClose.addEventListener('click', closeCallbackModal);
     callbackModal.querySelector('[data-close-callback-modal]').addEventListener('click', closeCallbackModal);
     document.addEventListener('keydown', function(e) {
