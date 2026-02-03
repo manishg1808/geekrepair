@@ -74,16 +74,16 @@
     .btn-secondary:hover { background: #fff; box-shadow: 0 6px 20px -4px rgba(249,115,22,0.4); transform: translateY(-2px); }
     .btn-secondary svg { width: 1rem; height: 1rem; flex-shrink: 0; }
     /* Legal and Pricing modals - redesigned */
-    #privacy-modal, #terms-modal, #pricing-modal { opacity: 0; visibility: hidden; transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.35s; }
-    #privacy-modal.open, #terms-modal.open, #pricing-modal.open { opacity: 1; visibility: visible; }
-    #privacy-modal .modal-backdrop, #terms-modal .modal-backdrop, #pricing-modal .modal-backdrop { background: linear-gradient(135deg, rgba(0,0,0,0.92), rgba(10,5,2,0.95)); backdrop-filter: blur(12px) saturate(1.2); }
-    #privacy-modal .modal-panel, #terms-modal .modal-panel, #pricing-modal .modal-panel { transform: translateY(30px) scale(0.96); opacity: 0; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease; max-height: 85vh; box-shadow: 0 25px 60px -15px rgba(249,115,22,0.3), 0 0 0 1px rgba(249,115,22,0.2), inset 0 1px 0 rgba(255,255,255,0.05); }
-    #privacy-modal.open .modal-panel, #terms-modal.open .modal-panel, #pricing-modal.open .modal-panel { transform: translateY(0) scale(1); opacity: 1; }
-    #privacy-modal .modal-body, #terms-modal .modal-body, #pricing-modal .modal-body { scrollbar-width: thin; scrollbar-color: #f97316 rgba(255,255,255,0.05); }
-    #privacy-modal .modal-body::-webkit-scrollbar, #terms-modal .modal-body::-webkit-scrollbar, #pricing-modal .modal-body::-webkit-scrollbar { width: 8px; }
-    #privacy-modal .modal-body::-webkit-scrollbar-track, #terms-modal .modal-body::-webkit-scrollbar-track, #pricing-modal .modal-body::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 4px; }
-    #privacy-modal .modal-body::-webkit-scrollbar-thumb, #terms-modal .modal-body::-webkit-scrollbar-thumb, #pricing-modal .modal-body::-webkit-scrollbar-thumb { background: #f97316; border-radius: 4px; }
-    #privacy-modal .modal-body::-webkit-scrollbar-thumb:hover, #terms-modal .modal-body::-webkit-scrollbar-thumb:hover, #pricing-modal .modal-body::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+    #privacy-modal, #terms-modal, #pricing-modal, #callback-modal, #consultation-modal { opacity: 0; visibility: hidden; transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.35s; }
+    #privacy-modal.open, #terms-modal.open, #pricing-modal.open, #callback-modal.open, #consultation-modal.open { opacity: 1; visibility: visible; }
+    #privacy-modal .modal-backdrop, #terms-modal .modal-backdrop, #pricing-modal .modal-backdrop, #callback-modal .modal-backdrop, #consultation-modal .modal-backdrop { background: linear-gradient(135deg, rgba(0,0,0,0.92), rgba(10,5,2,0.95)); backdrop-filter: blur(12px) saturate(1.2); }
+    #privacy-modal .modal-panel, #terms-modal .modal-panel, #pricing-modal .modal-panel, #callback-modal .modal-panel, #consultation-modal .modal-panel { transform: translateY(30px) scale(0.96); opacity: 0; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease; max-height: 85vh; box-shadow: 0 25px 60px -15px rgba(249,115,22,0.3), 0 0 0 1px rgba(249,115,22,0.2), inset 0 1px 0 rgba(255,255,255,0.05); }
+    #privacy-modal.open .modal-panel, #terms-modal.open .modal-panel, #pricing-modal.open .modal-panel, #callback-modal.open .modal-panel, #consultation-modal.open .modal-panel { transform: translateY(0) scale(1); opacity: 1; }
+    #privacy-modal .modal-body, #terms-modal .modal-body, #pricing-modal .modal-body, #callback-modal .modal-body, #consultation-modal .modal-body { scrollbar-width: thin; scrollbar-color: #f97316 rgba(255,255,255,0.05); }
+    #privacy-modal .modal-body::-webkit-scrollbar, #terms-modal .modal-body::-webkit-scrollbar, #pricing-modal .modal-body::-webkit-scrollbar, #callback-modal .modal-body::-webkit-scrollbar, #consultation-modal .modal-body::-webkit-scrollbar { width: 8px; }
+    #privacy-modal .modal-body::-webkit-scrollbar-track, #terms-modal .modal-body::-webkit-scrollbar-track, #pricing-modal .modal-body::-webkit-scrollbar-track, #callback-modal .modal-body::-webkit-scrollbar-track, #consultation-modal .modal-body::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 4px; }
+    #privacy-modal .modal-body::-webkit-scrollbar-thumb, #terms-modal .modal-body::-webkit-scrollbar-thumb, #pricing-modal .modal-body::-webkit-scrollbar-thumb, #callback-modal .modal-body::-webkit-scrollbar-thumb, #consultation-modal .modal-body::-webkit-scrollbar-thumb { background: #f97316; border-radius: 4px; }
+    #privacy-modal .modal-body::-webkit-scrollbar-thumb:hover, #terms-modal .modal-body::-webkit-scrollbar-thumb:hover, #pricing-modal .modal-body::-webkit-scrollbar-thumb:hover, #callback-modal .modal-body::-webkit-scrollbar-thumb:hover, #consultation-modal .modal-body::-webkit-scrollbar-thumb:hover { background: #ea580c; }
     /* Pricing table */
     .pricing-table { border-collapse: separate; border-spacing: 0; }
     .pricing-table th, .pricing-table td { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0.75rem 1rem; text-align: left; }
@@ -267,6 +267,222 @@
     .devices-image {
       box-shadow: 0 26px 60px -20px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.08);
     }
+    /* How It Works - Journey Tree */
+    .how-it-works-section {
+      position: relative;
+      background: linear-gradient(45deg, #0a0a0a 0%, #000 30%, rgba(249,115,22,0.08) 100%);
+      overflow: hidden;
+    }
+    .how-it-works-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 2px 2px, rgba(249,115,22,0.04) 1.5px, transparent 0);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+    .how-it-works-title-accent {
+      display: inline-block;
+      width: 56px;
+      height: 4px;
+      background: linear-gradient(90deg, #f97316, rgba(249,115,22,0.4));
+      border-radius: 2px;
+      margin-bottom: 0.75rem;
+    }
+    /* Journey tree: wave type */
+    .journey-tree {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .journey-tree__wave {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .journey-tree__wave {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 140px;
+        margin-left: -70px;
+        z-index: 0;
+        pointer-events: none;
+      }
+      .journey-tree__wave svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .journey-tree__wave-path {
+        fill: none;
+        stroke: url(#journey-wave-gradient);
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        filter: drop-shadow(0 0 12px rgba(249,115,22,0.35));
+      }
+    }
+    .journey-step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 140px 1fr;
+      gap: 0;
+      align-items: center;
+      min-height: 200px;
+      margin-bottom: 0;
+      z-index: 1;
+    }
+    @media (max-width: 767px) {
+      .journey-step {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 0 0 0 1.75rem;
+        border-left: 3px solid rgba(249,115,22,0.45);
+        margin-left: 10px;
+        margin-bottom: 2rem;
+      }
+      .journey-step:last-child { margin-bottom: 0; }
+    }
+    .journey-step__connector {
+      position: relative;
+      width: 140px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .journey-step--left .journey-step__connector { justify-content: flex-start; padding-left: 4px; }
+    .journey-step--right .journey-step__connector { justify-content: flex-end; padding-right: 4px; }
+    @media (max-width: 767px) {
+      .journey-step__connector {
+        position: absolute;
+        left: -15px;
+        top: 1.25rem;
+        width: auto;
+      }
+      .journey-step__branch { display: none; }
+    }
+    .journey-step__node {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #f97316 0%, #ea580c 50%, #c2410c 100%);
+      border: 3px solid rgba(10,10,10,0.9);
+      box-shadow: 0 0 0 2px rgba(249,115,22,0.5), 0 8px 24px -4px rgba(249,115,22,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #fff;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .journey-step:hover .journey-step__node {
+      transform: scale(1.12);
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.4), 0 12px 32px -4px rgba(249,115,22,0.6);
+    }
+    .journey-step__branch {
+      position: absolute;
+      top: 50%;
+      width: 72px;
+      height: 2px;
+      margin-top: -1px;
+      pointer-events: none;
+    }
+    .journey-step--left .journey-step__branch {
+      right: 50%;
+      margin-right: 36px;
+      background: linear-gradient(90deg, rgba(249,115,22,0.25), rgba(249,115,22,0.7));
+    }
+    .journey-step--right .journey-step__branch {
+      left: 50%;
+      margin-left: 36px;
+      background: linear-gradient(90deg, rgba(249,115,22,0.7), rgba(249,115,22,0.25));
+    }
+    .journey-step--left .journey-step__card { grid-column: 1; justify-self: end; }
+    .journey-step--right .journey-step__card { grid-column: 3; justify-self: start; }
+    .journey-step--left .journey-step__connector { grid-column: 2; }
+    .journey-step--right .journey-step__connector { grid-column: 2; order: -1; }
+    .journey-step--right .journey-step__card { order: 1; }
+    @media (max-width: 767px) {
+      .journey-step__card { grid-column: 1 !important; justify-self: stretch !important; max-width: none; }
+      .journey-step__node {
+        width: 36px;
+        height: 36px;
+        font-size: 0.875rem;
+        border-width: 2px;
+      }
+    }
+    .journey-step__card {
+      max-width: 340px;
+      padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+      border-radius: 20px;
+      background: linear-gradient(165deg, rgba(18,18,18,0.98) 0%, rgba(10,10,10,0.99) 100%);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 16px 48px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.04);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+    }
+    .journey-step__card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(249,115,22,0.35) 0%, transparent 45%, transparent 55%, rgba(249,115,22,0.12) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .journey-step__card:hover {
+      transform: translateY(-6px) scale(1.02);
+      border-color: rgba(249,115,22,0.25);
+      box-shadow: 0 28px 56px -24px rgba(0,0,0,0.5), 0 0 0 1px rgba(249,115,22,0.2), 0 0 48px -16px rgba(249,115,22,0.22);
+    }
+    .journey-step__card:hover::before { opacity: 1; }
+    .journey-step__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: rgba(249,115,22,0.95);
+      margin-bottom: 0.75rem;
+    }
+    .journey-step__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(249,115,22,0.2) 0%, rgba(249,115,22,0.06) 100%);
+      border: 1px solid rgba(249,115,22,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f97316;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .journey-step__card:hover .journey-step__icon {
+      transform: scale(1.06);
+      box-shadow: 0 8px 20px -6px rgba(249,115,22,0.4);
+    }
+    .journey-step__title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .journey-step__desc {
+      font-size: 0.875rem;
+      color: rgba(156,163,175,0.95);
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body class="smooth text-gray-100 antialiased min-h-screen">
@@ -299,12 +515,18 @@
             </span>
             1-855-242-6660
           </a>
-          <a href="#contact" class="btn-primary text-sm px-5 py-2.5">Schedule Free</a>
+          <button type="button" id="open-callback-modal" class="btn-primary text-xs px-5 py-2.5 cursor-pointer">Call Back Request</button>
         </div>
-        <button id="menu-btn" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Menu">
-          <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
+        <div class="flex lg:hidden items-center gap-2">
+          <a href="tel:18552426660" class="flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Call">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </a>
+          <button type="button" class="open-callback-modal-btn btn-primary text-xs px-4 py-2.5 cursor-pointer shrink-0">Call Back Request</button>
+          <button id="menu-btn" class="flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Menu">
+            <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
       </div>
     </div>
     <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-800/80 bg-black/98">
@@ -323,7 +545,7 @@
             <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
             1-855-242-6660
           </a>
-          <a href="#contact" class="btn-primary mt-2 w-full sm:w-auto">Schedule Free Consultation</a>
+          <button type="button" class="open-callback-modal-btn btn-primary text-xs mt-2 w-full sm:w-auto cursor-pointer">Call Back Request</button>
         </div>
       </div>
     </div>
@@ -339,10 +561,10 @@
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] mb-6 text-white">Complete IT Support for Small to Medium Organizations</h1>
           <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed">We take full responsibility for your IT management so your business can operate efficiently and securely.</p>
           <div class="flex flex-wrap gap-4">
-            <a href="#contact" class="btn-primary">
+            <button type="button" class="open-consultation-modal btn-primary cursor-pointer">
               Schedule FREE Consultation
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
+            </button>
             <a href="#services" class="btn-primary">Learn More</a>
           </div>
         </div>
@@ -622,10 +844,10 @@
               <span class="text-4xl md:text-5xl font-extrabold text-white">$75<span class="text-lg font-semibold text-white/70">/user</span></span>
               <span class="text-white/60 text-xs">per month</span>
             </div>
-            <a href="#contact" class="btn-secondary shrink-0 inline-flex items-center gap-2">
+            <button type="button" class="open-consultation-modal btn-secondary shrink-0 inline-flex items-center gap-2 cursor-pointer">
               Schedule FREE consultation
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -717,7 +939,7 @@
         <div class="relative flex justify-center">
           <div class="devices-image relative rounded-3xl overflow-hidden border border-white/10 bg-black/40 p-4 sm:p-6 mx-auto w-full max-w-md sm:max-w-lg">
             <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/3]">
-              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80" alt="Device diagnostics" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1591238372338-22d30c883a86?w=900&q=80" alt="Computer hardware and devices - Wi-Fi, laptops, printers, servers we support" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
             </div>
             <div class="mt-6 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10">
@@ -883,26 +1105,68 @@
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="py-16 md:py-20 section-gradient-diagonal">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">How It Works</h2>
-      <p class="text-gray-400 text-center mb-12">Get started in just three simple steps</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="w-16 h-16 rounded-2xl bg-primary text-black flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
-          <h3 class="font-semibold text-lg text-white mb-2">Start with a Plan</h3>
-          <p class="text-gray-400 text-sm">No contracts. No complications.</p>
+  <!-- How it works - Journey Tree -->
+  <section class="how-it-works-section py-16 md:py-24 relative">
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-14 md:mb-16">
+        <div class="how-it-works-title-accent mx-auto"></div>
+        <p class="text-primary text-sm font-semibold uppercase tracking-[0.25em] mb-2">Your Journey</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">How It Works</h2>
+        <p class="text-gray-400 max-w-xl mx-auto">Follow the path from plan to ongoing support—simple and clear.</p>
+      </div>
+      <div class="journey-tree">
+        <div class="journey-tree__wave" aria-hidden="true">
+          <svg viewBox="0 0 140 600" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="journey-wave-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="rgba(249,115,22,0.2)"/>
+                <stop offset="20%" stop-color="rgba(249,115,22,0.65)"/>
+                <stop offset="50%" stop-color="rgba(249,115,22,0.75)"/>
+                <stop offset="80%" stop-color="rgba(249,115,22,0.65)"/>
+                <stop offset="100%" stop-color="rgba(249,115,22,0.2)"/>
+              </linearGradient>
+            </defs>
+            <path class="journey-tree__wave-path" d="M 70 0 C 50 60 28 85 28 120 C 28 200 112 250 112 300 C 112 380 28 415 28 480 C 28 520 50 560 70 600"/>
+          </svg>
         </div>
-        <div class="text-center">
-          <div class="w-16 h-16 rounded-2xl bg-primary text-black flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
-          <h3 class="font-semibold text-lg text-white mb-2">Fast & Secure Onboarding</h3>
-          <p class="text-gray-400 text-sm">Your devices connected in no time.</p>
+
+        <div class="journey-step journey-step--left">
+          <div class="journey-step__card">
+            <span class="journey-step__label">Step 01</span>
+            <div class="journey-step__icon"><i class="ri-file-list-3-line"></i></div>
+            <h3 class="journey-step__title">Start with a Plan</h3>
+            <p class="journey-step__desc">Choose a plan that fits. No contracts, no complications—just the right level of support.</p>
+          </div>
+          <div class="journey-step__connector">
+            <span class="journey-step__branch" aria-hidden="true"></span>
+            <span class="journey-step__node">1</span>
+          </div>
         </div>
-        <div class="text-center">
-          <div class="w-16 h-16 rounded-2xl bg-primary text-black flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
-          <h3 class="font-semibold text-lg text-white mb-2">Continuous IT Support</h3>
-          <p class="text-gray-400 text-sm">Reliable help whenever you need it.</p>
+
+        <div class="journey-step journey-step--right">
+          <div class="journey-step__connector">
+            <span class="journey-step__node">2</span>
+            <span class="journey-step__branch" aria-hidden="true"></span>
+          </div>
+          <div class="journey-step__card">
+            <span class="journey-step__label">Step 02</span>
+            <div class="journey-step__icon"><i class="ri-rocket-2-line"></i></div>
+            <h3 class="journey-step__title">Fast & Secure Onboarding</h3>
+            <p class="journey-step__desc">We get your devices connected quickly and securely. You’re up and running in no time.</p>
+          </div>
+        </div>
+
+        <div class="journey-step journey-step--left">
+          <div class="journey-step__card">
+            <span class="journey-step__label">Step 03</span>
+            <div class="journey-step__icon"><i class="ri-customer-service-2-line"></i></div>
+            <h3 class="journey-step__title">Continuous IT Support</h3>
+            <p class="journey-step__desc">Ongoing help whenever you need it. Reliable support so you can focus on your business.</p>
+          </div>
+          <div class="journey-step__connector">
+            <span class="journey-step__branch" aria-hidden="true"></span>
+            <span class="journey-step__node">3</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1000,7 +1264,7 @@
         <p class="text-white/80 text-xs font-medium uppercase tracking-[0.2em] mb-1">Free consultation</p>
         <h3 class="text-xl md:text-2xl font-extrabold text-white mb-2 tracking-tight">Ready to get started?</h3>
         <p class="text-white/70 text-sm max-w-xl mx-auto mb-4">Talk to our experts today. No obligation.</p>
-        <a href="#contact" class="btn-primary text-sm px-6 py-2.5">Schedule Free Consultation <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        <button type="button" class="open-consultation-modal btn-primary text-sm px-6 py-2.5 cursor-pointer">Schedule Free Consultation <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
       </div>
     </div>
     <div class="footer-divider"></div>
@@ -1070,6 +1334,105 @@
       </div>
     </div>
   </footer>
+
+  <!-- Schedule Free Consultation Modal (Contact Form) -->
+  <div id="consultation-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" aria-hidden="true" aria-modal="true" role="dialog">
+    <div class="modal-backdrop absolute inset-0" data-close-consultation-modal></div>
+    <div class="modal-panel relative w-full max-w-2xl rounded-3xl bg-gradient-to-br from-[#0a0a0a] via-[#0d0805] to-[#0a0a0a] border-2 border-primary/30 overflow-hidden flex flex-col max-h-[90vh]">
+      <div class="relative px-6 py-5 border-b border-primary/20 shrink-0 bg-gradient-to-r from-black/80 via-[#0d0805]/80 to-black/80 backdrop-blur-sm">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.08),transparent)]"></div>
+        <div class="relative flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 text-primary">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </span>
+            <div>
+              <h2 class="text-xl font-bold text-white tracking-tight">Schedule Free Consultation</h2>
+              <p class="text-xs text-gray-400 mt-0.5">Contact us today for a free consultation</p>
+            </div>
+          </div>
+          <button type="button" id="consultation-modal-close" class="flex items-center justify-center w-11 h-11 rounded-xl text-gray-400 hover:text-white hover:bg-primary/20 hover:border-primary/40 border border-transparent transition-all duration-200" aria-label="Close">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body overflow-y-auto flex-1 px-6 py-6 sm:px-8 sm:py-8">
+        <form id="consultation-form" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input type="text" placeholder="First Name *" required class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary">
+            <input type="text" placeholder="Last Name *" required class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary">
+          </div>
+          <input type="email" placeholder="Email Address *" required class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary">
+          <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary">
+          <input type="text" placeholder="Company Name" class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary">
+          <select class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-primary">
+            <option value="">Company Size</option>
+            <option>1-5 employees</option>
+            <option>6-10 employees</option>
+            <option>11-25 employees</option>
+            <option>26-50 employees</option>
+            <option>51-100 employees</option>
+            <option>100+ employees</option>
+          </select>
+          <select class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-primary">
+            <option value="">Service Interest</option>
+            <option>GeekPremium</option>
+            <option>GeekPremiumMB</option>
+            <option>GeekPremium+</option>
+            <option>Free Consultation</option>
+            <option>Other</option>
+          </select>
+          <textarea placeholder="Message" rows="4" class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary resize-none"></textarea>
+          <button type="submit" class="btn-primary w-full">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call Back Request Modal -->
+  <div id="callback-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" aria-hidden="true" aria-modal="true" role="dialog">
+    <div class="modal-backdrop absolute inset-0" data-close-callback-modal></div>
+    <div class="modal-panel relative w-full max-w-md rounded-3xl bg-gradient-to-br from-[#0a0a0a] via-[#0d0805] to-[#0a0a0a] border-2 border-primary/30 overflow-hidden flex flex-col">
+      <div class="relative px-6 py-5 border-b border-primary/20 shrink-0 bg-gradient-to-r from-black/80 via-[#0d0805]/80 to-black/80 backdrop-blur-sm">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.08),transparent)]"></div>
+        <div class="relative flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 text-primary">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </span>
+            <div>
+              <h2 class="text-xl font-bold text-white tracking-tight">Call Back Request</h2>
+              <p class="text-xs text-gray-400 mt-0.5">We'll call you back at your convenience</p>
+            </div>
+          </div>
+          <button type="button" id="callback-modal-close" class="flex items-center justify-center w-11 h-11 rounded-xl text-gray-400 hover:text-white hover:bg-primary/20 hover:border-primary/40 border border-transparent transition-all duration-200" aria-label="Close">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body overflow-y-auto flex-1 px-6 py-6 sm:px-8 sm:py-8">
+        <form id="callback-form" class="space-y-4">
+          <div>
+            <label for="callback-name" class="block text-sm font-medium text-gray-300 mb-1.5">Name *</label>
+            <input type="text" id="callback-name" name="name" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+          </div>
+          <div>
+            <label for="callback-phone" class="block text-sm font-medium text-gray-300 mb-1.5">Phone Number *</label>
+            <input type="tel" id="callback-phone" name="phone" required placeholder="e.g. 1-855-242-6660" class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+          </div>
+          <div>
+            <label for="callback-email" class="block text-sm font-medium text-gray-300 mb-1.5">Email *</label>
+            <input type="email" id="callback-email" name="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+          </div>
+          <div>
+            <label for="callback-message" class="block text-sm font-medium text-gray-300 mb-1.5">Issues Message *</label>
+            <textarea id="callback-message" name="message" rows="3" required placeholder="Describe your issue or reason for callback..." class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full justify-center">Request Call Back</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- Privacy Policy Modal -->
   <div id="privacy-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" aria-hidden="true" aria-modal="true" role="dialog">
@@ -1426,6 +1789,68 @@
     document.getElementById('pricing-modal-get-started').addEventListener('click', function() { closePricingModal(); });
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && pricingModal.classList.contains('open')) closePricingModal();
+    });
+
+    // Call Back Request modal
+    var callbackModal = document.getElementById('callback-modal');
+    var callbackModalClose = document.getElementById('callback-modal-close');
+    function openCallbackModal() {
+      callbackModal.classList.add('open');
+      callbackModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('mobile-menu').classList.add('hidden');
+      document.getElementById('menu-icon-open').classList.remove('hidden');
+      document.getElementById('menu-icon-close').classList.add('hidden');
+    }
+    function closeCallbackModal() {
+      callbackModal.classList.remove('open');
+      callbackModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('open-callback-modal').addEventListener('click', openCallbackModal);
+    document.querySelectorAll('.open-callback-modal-btn').forEach(function(btn) {
+      btn.addEventListener('click', openCallbackModal);
+    });
+    callbackModalClose.addEventListener('click', closeCallbackModal);
+    callbackModal.querySelector('[data-close-callback-modal]').addEventListener('click', closeCallbackModal);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && callbackModal.classList.contains('open')) closeCallbackModal();
+    });
+    document.getElementById('callback-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you! We\'ll call you back as soon as possible at your preferred time.');
+      this.reset();
+      closeCallbackModal();
+    });
+
+    // Schedule Free Consultation modal (contact form popup)
+    var consultationModal = document.getElementById('consultation-modal');
+    var consultationModalClose = document.getElementById('consultation-modal-close');
+    function openConsultationModal() {
+      consultationModal.classList.add('open');
+      consultationModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeConsultationModal() {
+      consultationModal.classList.remove('open');
+      consultationModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.open-consultation-modal').forEach(function(btn) {
+      btn.addEventListener('click', openConsultationModal);
+    });
+    consultationModalClose.addEventListener('click', closeConsultationModal);
+    if (consultationModal.querySelector('[data-close-consultation-modal]')) {
+      consultationModal.querySelector('[data-close-consultation-modal]').addEventListener('click', closeConsultationModal);
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && consultationModal.classList.contains('open')) closeConsultationModal();
+    });
+    document.getElementById('consultation-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.');
+      this.reset();
+      closeConsultationModal();
     });
 
     document.getElementById('contact-form').addEventListener('submit', function(e) {
