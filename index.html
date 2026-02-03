@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geek Repair - Complete IT Support for Small to Medium Organizations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#f97316',
+            primaryLight: '#fb923c',
+            dark: '#000000',
+            darkCard: '#0a0a0a',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #000 0%, #0d0805 30%, rgba(249,115,22,0.08) 60%, #0d0805 85%, #000 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .smooth { scroll-behavior: smooth; }
+    * { scrollbar-width: thin; scrollbar-color: #f97316 #0a0a0a; }
+    /* Section gradients - diagonal (black + orange) */
+    .hero-gradient { background: linear-gradient(135deg, #000 0%, #0a0a0a 25%, rgba(249,115,22,0.07) 65%, #000 100%); }
+    .section-gradient-lr { background: linear-gradient(135deg, #000 0%, #0a0a0a 35%, rgba(249,115,22,0.07) 100%); }
+    .section-gradient-rl { background: linear-gradient(315deg, #000 0%, #0a0a0a 40%, rgba(249,115,22,0.07) 100%); }
+    .section-gradient-diagonal { background: linear-gradient(45deg, #0a0a0a 0%, #000 30%, rgba(249,115,22,0.08) 100%); }
+    .section-gradient-diagonal-2 { background: linear-gradient(225deg, #000 0%, rgba(249,115,22,0.06) 45%, #0a0a0a 100%); }
+    .section-gradient-radial { background: linear-gradient(225deg, #000 0%, #0a0a0a 40%, rgba(249,115,22,0.09) 100%); }
+    .section-gradient-radial-2 { background: linear-gradient(45deg, #0a0a0a 0%, rgba(249,115,22,0.06) 50%, #000 100%); }
+    .section-gradient-radial-3 { background: linear-gradient(315deg, #000 0%, rgba(249,115,22,0.07) 40%, #0a0a0a 100%); }
+    .hero-glow { box-shadow: 0 0 80px -20px rgba(249, 115, 22, 0.15); }
+    .banner-border { border: 2px solid rgba(249, 115, 22, 0.3); }
+    .hero-main-img { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08), 0 0 60px -10px rgba(249, 115, 22, 0.3); }
+    .footer-pattern { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 32px 32px; }
+    .footer-link { position: relative; }
+    .footer-link::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 1px; background: #f97316; transition: width 0.2s ease; }
+    .footer-link:hover::after { width: 100%; }
+    .footer-cta-glow { box-shadow: 0 -4px 40px rgba(249, 115, 22, 0.25), inset 0 1px 0 rgba(255,255,255,0.15); }
+    .footer-mesh { background: radial-gradient(ellipse 120% 80% at 50% 0%, rgba(249, 115, 22, 0.08) 0%, transparent 50%), radial-gradient(ellipse 80% 60% at 100% 100%, rgba(249, 115, 22, 0.05) 0%, transparent 40%); }
+    .trust-badge { transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; }
+    .trust-badge:hover { transform: translateY(-2px); border-color: rgba(249, 115, 22, 0.4); box-shadow: 0 8px 24px -8px rgba(249, 115, 22, 0.2); }
+    .footer-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.3), transparent); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: #f97316; transition: width 0.25s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link-home { letter-spacing: 0.25em; font-weight: 800; text-transform: uppercase; font-size: 1rem; }
+    .nav-link-home:hover { color: #f97316 !important; box-shadow: 0 0 20px -4px rgba(249, 115, 22, 0.4); transform: translateY(-1px); }
+    .nav-link-home .home-icon { transition: transform 0.25s ease; }
+    .nav-link-home:hover .home-icon { transform: scale(1.1); color: #f97316; }
+    .card-ask-gradient { background: linear-gradient(135deg, #f97316 0%, #ea580c 40%, #0a0a0a 100%); }
+    /* Scroll to top button */
+    #scroll-to-top { opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease; }
+    #scroll-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    #scroll-to-top .progress-ring { transform: rotate(-90deg); }
+    #scroll-to-top .progress-ring__bg { stroke: rgba(255,255,255,0.1); }
+    #scroll-to-top .progress-ring__fill { stroke: #f97316; transition: stroke-dashoffset 0.1s ease; }
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.5rem; border-radius: 0.75rem; background: linear-gradient(135deg, #f97316 0%, #ea580c 40%, #0a0a0a 100%); color: #fff; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 14px -4px rgba(249,115,22,0.5); border: 1px solid rgba(249,115,22,0.4); }
+    .btn-primary:hover { background: linear-gradient(135deg, #fb923c 0%, #f97316 40%, #1a1a1a 100%); box-shadow: 0 6px 20px -4px rgba(249,115,22,0.6); transform: translateY(-2px); }
+    .btn-primary svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+    .btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.5rem; border-radius: 0.75rem; background: rgba(255,255,255,0.95); color: #0a0a0a; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 14px -4px rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.2); }
+    .btn-secondary:hover { background: #fff; box-shadow: 0 6px 20px -4px rgba(249,115,22,0.4); transform: translateY(-2px); }
+    .btn-secondary svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+    /* Legal and Pricing modals - redesigned */
+    #privacy-modal, #terms-modal, #pricing-modal { opacity: 0; visibility: hidden; transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.35s; }
+    #privacy-modal.open, #terms-modal.open, #pricing-modal.open { opacity: 1; visibility: visible; }
+    #privacy-modal .modal-backdrop, #terms-modal .modal-backdrop, #pricing-modal .modal-backdrop { background: linear-gradient(135deg, rgba(0,0,0,0.92), rgba(10,5,2,0.95)); backdrop-filter: blur(12px) saturate(1.2); }
+    #privacy-modal .modal-panel, #terms-modal .modal-panel, #pricing-modal .modal-panel { transform: translateY(30px) scale(0.96); opacity: 0; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease; max-height: 85vh; box-shadow: 0 25px 60px -15px rgba(249,115,22,0.3), 0 0 0 1px rgba(249,115,22,0.2), inset 0 1px 0 rgba(255,255,255,0.05); }
+    #privacy-modal.open .modal-panel, #terms-modal.open .modal-panel, #pricing-modal.open .modal-panel { transform: translateY(0) scale(1); opacity: 1; }
+    #privacy-modal .modal-body, #terms-modal .modal-body, #pricing-modal .modal-body { scrollbar-width: thin; scrollbar-color: #f97316 rgba(255,255,255,0.05); }
+    #privacy-modal .modal-body::-webkit-scrollbar, #terms-modal .modal-body::-webkit-scrollbar, #pricing-modal .modal-body::-webkit-scrollbar { width: 8px; }
+    #privacy-modal .modal-body::-webkit-scrollbar-track, #terms-modal .modal-body::-webkit-scrollbar-track, #pricing-modal .modal-body::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 4px; }
+    #privacy-modal .modal-body::-webkit-scrollbar-thumb, #terms-modal .modal-body::-webkit-scrollbar-thumb, #pricing-modal .modal-body::-webkit-scrollbar-thumb { background: #f97316; border-radius: 4px; }
+    #privacy-modal .modal-body::-webkit-scrollbar-thumb:hover, #terms-modal .modal-body::-webkit-scrollbar-thumb:hover, #pricing-modal .modal-body::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+    /* Pricing table */
+    .pricing-table { border-collapse: separate; border-spacing: 0; }
+    .pricing-table th, .pricing-table td { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0.75rem 1rem; text-align: left; }
+    .pricing-table tr:hover td { background: rgba(249,115,22,0.04); }
+    .pricing-table .plan-popular { position: relative; border-left: 2px solid #f97316; border-right: 2px solid #f97316; background: linear-gradient(to bottom, rgba(249,115,22,0.08), transparent); }
+    .pricing-table .check { color: #22c55e; }
+    .pricing-table .dash { color: #6b7280; }
+    body { overflow-x: hidden; }
+    /* Why Choose Geek Repair cards - premium */
+    .why-choose-card {
+      background: linear-gradient(160deg, rgba(18,18,18,0.98) 0%, rgba(8,8,8,0.99) 50%, rgba(15,12,10,0.98) 100%);
+      box-shadow: 0 8px 32px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.03);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+    }
+    .why-choose-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(249,115,22,0.4) 0%, transparent 40%, transparent 60%, rgba(249,115,22,0.15) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .why-choose-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 24px 48px -16px rgba(0,0,0,0.55), 0 0 0 1px rgba(249,115,22,0.15), 0 0 60px -16px rgba(249,115,22,0.25);
+      border-color: rgba(249,115,22,0.25);
+    }
+    .why-choose-card:hover::before { opacity: 1; }
+    .why-choose-card .card-icon-wrap {
+      background: linear-gradient(145deg, rgba(249,115,22,0.2) 0%, rgba(249,115,22,0.06) 50%, rgba(249,115,22,0.12) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 6px 20px -4px rgba(249,115,22,0.35);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, background 0.3s ease;
+    }
+    .why-choose-card:hover .card-icon-wrap {
+      transform: scale(1.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 12px 28px -6px rgba(249,115,22,0.4);
+      background: linear-gradient(145deg, rgba(249,115,22,0.28) 0%, rgba(249,115,22,0.1) 100%);
+    }
+    .why-choose-card .card-number {
+      background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #ea580c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      text-shadow: 0 0 40px rgba(249,115,22,0.3);
+    }
+    .why-choose-card .card-divider {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, #f97316, transparent);
+      border-radius: 1px;
+      opacity: 0.8;
+    }
+    .why-choose-card .card-hover-arrow { opacity: 0; transform: translateX(-4px); transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s ease; }
+    .why-choose-card:hover .card-hover-arrow { opacity: 1; transform: translateX(0); color: #f97316; }
+    /* Why Choose section wrapper */
+    .why-choose-section {
+      position: relative;
+      background: 
+        radial-gradient(ellipse 100% 60% at 50% 0%, rgba(249,115,22,0.06) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 40% at 80% 100%, rgba(249,115,22,0.04) 0%, transparent 50%),
+        linear-gradient(180deg, #050505 0%, #0a0a0a 50%, #060606 100%);
+    }
+    .why-choose-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+    .why-choose-hero-img {
+      position: relative;
+      box-shadow: 0 24px 48px -16px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+    }
+    .why-choose-hero-img::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(249,115,22,0.6), rgba(249,115,22,0.9), rgba(249,115,22,0.6), transparent);
+      opacity: 0.9;
+    }
+    .why-choose-cta {
+      background: linear-gradient(135deg, rgba(249,115,22,0.95) 0%, #ea580c 35%, rgba(20,12,8,0.98) 100%);
+      box-shadow: 0 8px 32px -8px rgba(249,115,22,0.4), 0 0 0 1px rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+    .why-choose-cta:hover { box-shadow: 0 12px 40px -8px rgba(249,115,22,0.5), 0 0 0 1px rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body class="smooth text-gray-100 antialiased min-h-screen">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-gray-800/80 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-[72px]">
+        <a href="#home" class="flex items-center gap-3 shrink-0">
+          <span class="flex items-center justify-center w-11 h-11 rounded-xl bg-primary/20 text-primary border border-primary/40">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </span>
+          <span class="text-xl font-bold text-white tracking-tight hidden sm:inline">Geek Repair</span>
+        </a>
+        <div class="hidden lg:flex items-center gap-0.5">
+          <a href="#services" class="nav-link px-4 py-2.5 rounded-lg text-gray-300 hover:text-white text-sm font-medium transition">Services</a>
+          <a href="#pricing" class="nav-link px-4 py-2.5 rounded-lg text-gray-300 hover:text-white text-sm font-medium transition">Pricing</a>
+          <a href="#contact" class="nav-link px-4 py-2.5 rounded-lg text-gray-300 hover:text-white text-sm font-medium transition">Contact</a>
+          <a href="#home" class="nav-link nav-link-home inline-flex items-center gap-2 px-5 py-3 rounded-xl text-white border-2 border-primary/40 bg-primary/10 hover:bg-primary/20 hover:border-primary shadow-lg shadow-primary/10 transition-all duration-300">
+            <span class="home-icon"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></span>
+            <span>Home</span>
+          </a>
+          <span class="w-px h-5 bg-gray-700 mx-1"></span>
+          <a href="#privacy" class="nav-link px-4 py-2.5 rounded-lg text-gray-400 hover:text-primary text-sm font-medium transition">Privacy Policy</a>
+          <a href="#terms" class="nav-link px-4 py-2.5 rounded-lg text-gray-400 hover:text-primary text-sm font-medium transition">Terms & Conditions</a>
+        </div>
+        <div class="hidden lg:flex items-center gap-4">
+          <a href="tel:18552426660" class="flex items-center gap-2 px-4 py-2.5 rounded-lg text-gray-300 hover:text-primary transition text-sm font-medium">
+            <span class="flex items-center justify-center w-9 h-9 rounded-lg bg-white/5 border border-gray-700">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </span>
+            1-855-242-6660
+          </a>
+          <a href="#contact" class="btn-primary text-sm px-5 py-2.5">Schedule Free</a>
+        </div>
+        <button id="menu-btn" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Menu">
+          <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-800/80 bg-black/98">
+      <div class="max-w-7xl mx-auto px-4 py-4 space-y-0.5">
+        <a href="#services" class="flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-300 hover:bg-white/5 hover:text-primary transition font-medium">Services</a>
+        <a href="#pricing" class="flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-300 hover:bg-white/5 hover:text-primary transition font-medium">Pricing</a>
+        <a href="#contact" class="flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-300 hover:bg-white/5 hover:text-primary transition font-medium">Contact</a>
+        <a href="#home" class="flex items-center gap-3 px-5 py-4 rounded-xl text-white border-2 border-primary/50 bg-primary/15 hover:bg-primary/25 hover:text-primary transition-all duration-300 font-extrabold text-lg uppercase shadow-lg shadow-primary/10" style="letter-spacing: 0.25em;">
+          <svg class="w-5 h-5 shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          Home
+        </a>
+        <a href="#privacy" class="flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-400 hover:bg-white/5 hover:text-primary transition font-medium text-sm">Privacy Policy</a>
+        <a href="#terms" class="flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-400 hover:bg-white/5 hover:text-primary transition font-medium text-sm">Terms & Conditions</a>
+        <div class="border-t border-gray-800 my-3 pt-3">
+          <a href="tel:18552426660" class="flex items-center gap-3 px-4 py-3.5 rounded-xl text-primary hover:bg-primary/10 transition font-semibold">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            1-855-242-6660
+          </a>
+          <a href="#contact" class="btn-primary mt-2 w-full sm:w-auto">Schedule Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="relative min-h-[90vh] flex items-center hero-gradient text-white overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(249,115,22,0.12),transparent)] pointer-events-none"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 w-full py-24 md:py-32">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <p class="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-6 border border-primary/30">IT Support That Scales</p>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] mb-6 text-white">Complete IT Support for Small to Medium Organizations</h1>
+          <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed">We take full responsibility for your IT management so your business can operate efficiently and securely.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#contact" class="btn-primary">
+              Schedule FREE Consultation
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#services" class="btn-primary">Learn More</a>
+          </div>
+        </div>
+        <div class="relative order-last lg:order-last w-full max-w-lg lg:max-w-xl mx-auto">
+          <div class="grid grid-cols-12 gap-2 sm:gap-3 items-end" style="min-height: 320px;">
+            <div class="col-span-4 flex flex-col gap-2 sm:gap-3 min-h-[260px] sm:min-h-[320px] lg:min-h-[380px]">
+              <div class="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl hero-glow flex-1 min-h-0 bg-darkCard">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=80" alt="Laptop repair - Geek Repair" class="absolute inset-0 w-full h-full object-cover" loading="eager">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
+              </div>
+              <div class="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl hero-glow flex-1 min-h-0 bg-darkCard">
+                <img src="https://images.unsplash.com/photo-1591238372338-22d30c883a86?w=400&q=80" alt="Computer hardware - Geek Repair" class="absolute inset-0 w-full h-full object-cover" loading="eager">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
+              </div>
+            </div>
+            <div class="col-span-8 relative rounded-3xl overflow-hidden border border-white/10 bg-darkCard/50 hero-main-img h-[280px] sm:h-[340px] lg:h-[400px] -mb-6 sm:-mb-8 lg:-mb-10">
+              <img src="https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?w=700&q=85" alt="IT support - Geek Repair" class="w-full h-full object-cover object-center">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-4 left-4 right-4 flex items-center gap-2 pointer-events-none">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/90 text-black text-xs font-semibold backdrop-blur-sm">IT Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none hidden lg:block -z-10"></div>
+    </div>
+  </section>
+
+  <!-- Our Services -->
+  <section id="services" class="py-16 md:py-20 section-gradient-lr">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <p class="text-primary text-center text-sm font-medium uppercase tracking-[0.2em] mb-2">What we do</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">Our Services</h2>
+      <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">Repair, installation, and support for the devices you rely on.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Laptop & Desktop -->
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+          <div class="relative">
+            <h3 class="font-semibold text-lg text-white mb-2 group-hover:text-primary transition">Laptop & Desktop</h3>
+            <p class="text-gray-400 text-sm">Repair & maintenance for laptops and desktop systems.</p>
+          </div>
+        </div>
+        <!-- WiFi - LAN -->
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+          <div class="relative"><h3 class="font-semibold text-lg text-white mb-2 group-hover:text-primary transition">WiFi - LAN Installation</h3><p class="text-gray-400 text-sm">Setup and troubleshooting for WiFi and LAN connections.</p></div>
+        </div>
+        <!-- Printer -->
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+          <div class="relative"><h3 class="font-semibold text-lg text-white mb-2 group-hover:text-primary transition">Printer Installation</h3><p class="text-gray-400 text-sm">Installation and configuration of all types of printers.</p></div>
+        </div>
+        <!-- Smart Phones -->
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+          <div class="relative"><h3 class="font-semibold text-lg text-white mb-2 group-hover:text-primary transition">Smart Phones</h3><p class="text-gray-400 text-sm">Quick repair services for your smartphones and devices.</p></div>
+        </div>
+        <!-- Camera -->
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+          <div class="relative"><h3 class="font-semibold text-lg text-white mb-2 group-hover:text-primary transition">Camera</h3><p class="text-gray-400 text-sm">Camera setup, lens cleaning, and issue resolution.</p></div>
+        </div>
+        <!-- Tablets -->
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 1.99-.9 1.99-2L23 6c0-1.1-.9-2-2-2zm-2 14H5V6h14v12z"/></svg>
+          <div class="relative"><h3 class="font-semibold text-lg text-white mb-2 group-hover:text-primary transition">Tablets</h3><p class="text-gray-400 text-sm">Fixing software & hardware issues for tablets.</p></div>
+        </div>
+        <!-- TV Mounting -->
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+          <div class="relative"><h3 class="font-semibold text-lg text-white mb-2 group-hover:text-primary transition">TV Mounting</h3><p class="text-gray-400 text-sm">Professional TV mounting and installation services.</p></div>
+        </div>
+        <!-- Game Console -->
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M21.58 16.09l-1.09-7.66C20.21 6.46 18.52 5 16.53 5H7.47C5.48 5 3.79 6.46 3.51 8.43l-1.09 7.66C2.2 17.63 3.39 19 4.94 19c.68 0 1.32-.27 1.8-.75L9 16h6l2.25 2.25c.48.48 1.13.75 1.8.75 1.56 0 2.75-1.37 2.53-2.91zM11 11H9v2H8v-2H6v-1h2V8h1v2h2v1zm4-1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2 3c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
+          <div class="relative"><h3 class="font-semibold text-lg text-white mb-2 group-hover:text-primary transition">Game Console</h3><p class="text-gray-400 text-sm">Repair and maintenance for gaming consoles.</p></div>
+        </div>
+        <!-- Home Appliance -->
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2.01L6 2c-1.1 0-2 .89-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5h2v3H8zm0 7h2v5H8z"/></svg>
+          <div class="relative"><h3 class="font-semibold text-lg text-white mb-2 group-hover:text-primary transition">Home Appliance</h3><p class="text-gray-400 text-sm">Repair solutions for major home appliances.</p></div>
+        </div>
+        <!-- Data Recovery -->
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+          <div class="relative"><h3 class="font-semibold text-lg text-white mb-2 group-hover:text-primary transition">Data Recovery</h3><p class="text-gray-400 text-sm">Recover lost or corrupted data from drives, laptops, and devices.</p></div>
+        </div>
+        <!-- Virus & Malware -->
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          <div class="relative"><h3 class="font-semibold text-lg text-white mb-2 group-hover:text-primary transition">Virus & Malware Removal</h3><p class="text-gray-400 text-sm">Virus removal, security scans, and system cleanup for PCs and devices.</p></div>
+        </div>
+        <!-- Small Appliances -->
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20 sm:col-span-2 lg:col-span-1">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <svg class="absolute -right-4 -bottom-4 w-28 h-28 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M20 8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v10h20V10c0-1.1-.9-2-2-2zM9 6h6v2H9V6zm11 12H4v-3h2v1h2v-1h8v1h2v-1h2v3z"/></svg>
+          <div class="relative"><h3 class="font-semibold text-lg text-white mb-2 group-hover:text-primary transition">Small Appliances</h3><p class="text-gray-400 text-sm">Fast fixes for small household appliances.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us - Premium UI -->
+  <section class="why-choose-section py-20 md:py-24 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      <!-- Hero image strip -->
+      <div class="why-choose-hero-img relative rounded-3xl overflow-hidden mb-14">
+        <img
+          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=85"
+          alt="Professional IT support and technology - Geek Repair"
+          class="w-full h-56 sm:h-72 md:h-80 object-cover"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-transparent"></div>
+        <div class="absolute inset-0 flex flex-col justify-center px-6 sm:px-10 md:px-14">
+          <span class="inline-block text-primary font-semibold text-xs uppercase tracking-[0.2em] mb-3 opacity-90">Why Choose Us</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white max-w-xl leading-tight drop-shadow-lg" style="text-shadow: 0 2px 20px rgba(0,0,0,0.5);">Why Choose Geek Repair</h2>
+          <p class="text-gray-300 text-sm sm:text-base mt-3 max-w-md leading-relaxed">Three reasons we stand out for your repair and support needs.</p>
+        </div>
+        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 flex items-center gap-2 rounded-full bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-lg shadow-emerald-400/40"></span>
+          <span class="text-white/95 text-xs font-semibold">24/7 Available</span>
+        </div>
+      </div>
+
+      <!-- Cards - bento stagger -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch relative z-10">
+        <div class="why-choose-card group relative rounded-2xl border border-white/10 overflow-hidden flex flex-col">
+          <span class="absolute top-4 right-4 z-10 flex items-center justify-center min-w-[2rem] h-8 px-2.5 rounded-full bg-primary/20 text-primary font-bold text-sm border border-primary/30">01</span>
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-15%,rgba(249,115,22,0.1),transparent)]"></div>
+          <div class="relative p-6 sm:p-8 flex flex-col flex-1 text-center">
+            <span class="card-icon-wrap flex items-center justify-center w-16 h-16 rounded-2xl border border-primary/25 shrink-0 mx-auto mb-6">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+            <h3 class="font-semibold text-xl text-white mb-2 group-hover:text-primary transition-colors">24/7 Support</h3>
+            <div class="card-divider mb-4 mx-auto"></div>
+            <p class="text-gray-400 text-sm leading-relaxed flex-1">Our team is available round the clock to assist you with any network issues you may face.</p>
+            <span class="card-hover-arrow inline-flex items-center gap-1 mt-4 text-gray-500 text-sm font-medium">
+              <span>Learn more</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="why-choose-card group relative rounded-2xl border border-white/10 overflow-hidden flex flex-col md:mt-10">
+          <span class="absolute top-4 right-4 z-10 flex items-center justify-center min-w-[2rem] h-8 px-2.5 rounded-full bg-primary/20 text-primary font-bold text-sm border border-primary/30">02</span>
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-15%,rgba(249,115,22,0.1),transparent)]"></div>
+          <div class="relative p-6 sm:p-8 flex flex-col flex-1 text-center">
+            <span class="card-icon-wrap flex items-center justify-center w-16 h-16 rounded-2xl border border-primary/25 shrink-0 mx-auto mb-6">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+            </span>
+            <h3 class="font-semibold text-xl text-white mb-2 group-hover:text-primary transition-colors">Top Guide</h3>
+            <div class="card-divider mb-4 mx-auto"></div>
+            <p class="text-gray-400 text-sm leading-relaxed flex-1">Step-by-step expert guidance to troubleshoot Wi-Fi and LAN problems efficiently.</p>
+            <span class="card-hover-arrow inline-flex items-center gap-1 mt-4 text-gray-500 text-sm font-medium">
+              <span>Learn more</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="why-choose-card group relative rounded-2xl border border-white/10 overflow-hidden flex flex-col">
+          <span class="absolute top-4 right-4 z-10 flex items-center justify-center min-w-[2rem] h-8 px-2.5 rounded-full bg-primary/20 text-primary font-bold text-sm border border-primary/30">03</span>
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-15%,rgba(249,115,22,0.1),transparent)]"></div>
+          <div class="relative p-6 sm:p-8 flex flex-col flex-1 text-center">
+            <span class="card-icon-wrap flex items-center justify-center w-16 h-16 rounded-2xl border border-primary/25 shrink-0 mx-auto mb-6">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </span>
+            <h3 class="font-semibold text-xl text-white mb-2 group-hover:text-primary transition-colors">Advanced Troubleshooting</h3>
+            <div class="card-divider mb-4 mx-auto"></div>
+            <p class="text-gray-400 text-sm leading-relaxed flex-1">Use command-line tools and Wi-Fi analyzer apps to diagnose network issues.</p>
+            <span class="card-hover-arrow inline-flex items-center gap-1 mt-4 text-gray-500 text-sm font-medium">
+              <span>Learn more</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ask CTA -->
+      <div class="mt-14 why-choose-cta flex flex-col sm:flex-row items-center justify-between gap-6 p-6 sm:p-8 md:p-10 rounded-2xl border border-primary/30 transition-shadow">
+        <div class="text-center sm:text-left">
+          <h3 class="text-xl md:text-2xl font-bold text-white mb-1.5">Ask Us Anything</h3>
+          <p class="text-white/90 text-sm md:text-base">Experts at Geek Repair are ready to answer your questions, day or night.</p>
+        </div>
+        <a href="#contact" class="btn-secondary shrink-0 inline-flex items-center gap-2">
+          See More
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why you'll love -->
+  <section class="py-16 md:py-20 section-gradient-rl">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-12">Why you'll love Geek Repair</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="flex gap-4">
+          <span class="text-3xl font-bold text-primary">01</span>
+          <div>
+            <h3 class="font-semibold text-lg text-white mb-2">Experienced & Verified Technicians</h3>
+            <p class="text-gray-400 text-sm">Our team follows a multi-step quality process, ensuring experience and reliability you can trust.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <span class="text-3xl font-bold text-primary">02</span>
+          <div>
+            <h3 class="font-semibold text-lg text-white mb-2">Service that's tailored to you</h3>
+            <p class="text-gray-400 text-sm">Discuss your individual situation with an Expert who specializes in your topic, 24/7.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <span class="text-3xl font-bold text-primary">03</span>
+          <div>
+            <h3 class="font-semibold text-lg text-white mb-2">Save valuable time at home</h3>
+            <p class="text-gray-400 text-sm">Connect from any device. No driving across town or wasted time in the waiting room.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-16 md:py-20 section-gradient-diagonal">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="relative rounded-3xl overflow-hidden border-2 border-primary px-8 py-12 md:px-14 md:py-16 text-center md:flex md:items-center md:justify-between md:gap-8 md:text-left">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary via-orange-500 to-primary"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(135deg,transparent_0%,rgba(0,0,0,0.03)_50%,transparent_100%)]"></div>
+        <div class="relative mb-8 md:mb-0">
+          <h2 class="text-2xl md:text-3xl font-bold text-black mb-2">Get Unlimited IT Support</h2>
+          <p class="text-black/70 text-lg">Starting at $75/month per user • Minimum of 3 users</p>
+        </div>
+        <a href="#contact" class="btn-secondary shrink-0 relative z-10">Schedule FREE consultation <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Devices -->
+  <section class="py-16 md:py-20 section-gradient-diagonal-2">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">Comprehensive Technical Support for Every Device</h2>
+      <p class="text-gray-400 text-center mb-10">You & your business rely on these—we've got you covered.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">WI-FI</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Printers</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Laptops</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">PC/Mac</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Tablets</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">iOS/Android</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Network Setup</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Servers</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Cloud Services</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Storage</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Security Cameras</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Scanners</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Projectors</span>
+        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Peripherals</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-16 md:py-20 section-gradient-radial">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">Benefits of Outsourcing Your IT Support</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative"><h3 class="font-semibold text-primary mb-2 group-hover:text-orange-400 transition">Dedicated IT Team</h3><p class="text-gray-400 text-sm">US-based technicians handle your questions, resolve issues, and keep your business running smoothly and securely.</p></div>
+        </div>
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative"><h3 class="font-semibold text-primary mb-2 group-hover:text-orange-400 transition">Modern Technology</h3><p class="text-gray-400 text-sm">We use up-to-date tools to prevent issues and resolve them quickly when they occur.</p></div>
+        </div>
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative"><h3 class="font-semibold text-primary mb-2 group-hover:text-orange-400 transition">Service Automation</h3><p class="text-gray-400 text-sm">Automation improves accuracy, quality, and efficiency across all IT support work.</p></div>
+        </div>
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative"><h3 class="font-semibold text-primary mb-2 group-hover:text-orange-400 transition">Quick Remote Response</h3><p class="text-gray-400 text-sm">Tech experts available by phone, email, or chat to support you and your team.</p></div>
+        </div>
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative"><h3 class="font-semibold text-primary mb-2 group-hover:text-orange-400 transition">Flat Pricing, Fair Contracts</h3><p class="text-gray-400 text-sm">Transparent pricing with no hidden costs or billing surprises.</p></div>
+        </div>
+        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative"><h3 class="font-semibold text-primary mb-2 group-hover:text-orange-400 transition">Safe & Secure</h3><p class="text-gray-400 text-sm">Licensed security suite with encryption, vulnerability scans, and threat defense for every client.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plans -->
+  <section id="plans" class="py-16 md:py-20 section-gradient-lr">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">Choose the Right Plan for Your Business</h2>
+      <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">Comprehensive IT support plans. GeekPremiumMB: $225/month for micro businesses (up to 3 employees).</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="relative rounded-2xl border-2 border-primary p-8 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/15 via-[#0d0805] to-black"></div>
+          <span class="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-primary text-black text-xs font-bold shadow-lg">Most Popular</span>
+          <div class="relative">
+            <h3 class="text-xl font-bold text-white mb-1">PremiumMB</h3>
+            <p class="text-2xl font-bold text-primary mb-4">$225/month</p>
+            <p class="text-gray-300 text-sm mb-6">Up to 3 users</p>
+            <ul class="space-y-2 text-sm text-gray-400 mb-6">
+              <li>• Tailored for micro businesses (up to 3 employees)</li>
+              <li>• Flat, transparent pricing</li>
+              <li>• Comprehensive IT Support</li>
+              <li>• 2 devices per user</li>
+            </ul>
+            <a href="#contact" class="btn-primary w-full">Get Started</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl border-2 border-primary/40 p-8 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-black via-[#0d0805] to-black"></div>
+          <div class="relative">
+            <h3 class="text-xl font-bold text-white mb-1">Premium</h3>
+            <p class="text-2xl font-bold text-primary mb-4">$75/month per person</p>
+            <p class="text-gray-300 text-sm mb-6">4+ Users</p>
+            <ul class="space-y-2 text-sm text-gray-400 mb-6">
+              <li>• Unlimited phone, chat, email support</li>
+              <li>• Mac & PC – 2 devices per user</li>
+              <li>• Remote & on-prem workforce support</li>
+              <li>• Backups & disaster recovery</li>
+            </ul>
+            <a href="#pricing" class="btn-primary w-full">Learn More</a>
+          </div>
+        </div>
+        <div class="relative rounded-2xl border-2 border-primary/40 p-8 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-black via-[#0d0805] to-black"></div>
+          <div class="relative">
+            <h3 class="text-xl font-bold text-white mb-1">Premium+</h3>
+            <p class="text-2xl font-bold text-primary mb-4">$95/month per person</p>
+            <p class="text-gray-300 text-sm mb-6">All Premium Features</p>
+            <ul class="space-y-2 text-sm text-gray-400 mb-6">
+              <li>• Mobile device management</li>
+              <li>• Procurement & provisioning</li>
+              <li>• Data compliance</li>
+              <li>• Virtual CIO (4 seats min)</li>
+            </ul>
+            <a href="#pricing" class="btn-primary w-full">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who we are -->
+  <section class="py-16 md:py-20 section-gradient-radial-3 relative overflow-hidden">
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-2">Who we are?</h2>
+      <p class="text-primary text-center text-sm font-medium uppercase tracking-widest mb-8">Your trusted IT partner</p>
+      <div class="max-w-3xl mx-auto space-y-6">
+        <p class="text-gray-400 text-center leading-relaxed">Geek Repair is a comprehensive technology and appliance repair service provider serving a wide range of electronic equipment and devices. Specialization: Computers & Tablets, Mobile Phones, Printers, Wi-Fi & Networking, TV & Home Cinema, Video Games & Entertainment, Cameras & Camcorders, Smart Home, Home Security, Drones, Audio & Video, TV Installation, Big Appliance, Small Appliance & more.</p>
+        <p class="text-gray-400 text-center leading-relaxed">We are committed to fast and efficient service. Book appointments for repair, installation, troubleshooting or equipment collection. Our experts quickly diagnose and resolve technology-related issues. We also offer protection plans and comprehensive solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-16 md:py-20 section-gradient-diagonal">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">How It Works</h2>
+      <p class="text-gray-400 text-center mb-12">Get started in just three simple steps</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-2xl bg-primary text-black flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+          <h3 class="font-semibold text-lg text-white mb-2">Start with a Plan</h3>
+          <p class="text-gray-400 text-sm">No contracts. No complications.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-2xl bg-primary text-black flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+          <h3 class="font-semibold text-lg text-white mb-2">Fast & Secure Onboarding</h3>
+          <p class="text-gray-400 text-sm">Your devices connected in no time.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-2xl bg-primary text-black flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+          <h3 class="font-semibold text-lg text-white mb-2">Continuous IT Support</h3>
+          <p class="text-gray-400 text-sm">Reliable help whenever you need it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 md:py-20 section-gradient-rl text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <p class="text-primary text-center text-sm font-medium uppercase tracking-[0.2em] mb-2">Get in touch</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">Ready to Get Started?</h2>
+      <p class="text-gray-400 text-center mb-12">Contact us today for a free consultation.</p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <form id="contact-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input type="text" placeholder="First Name *" required class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary">
+              <input type="text" placeholder="Last Name *" required class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary">
+            </div>
+            <input type="email" placeholder="Email Address *" required class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary">
+            <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary">
+            <input type="text" placeholder="Company Name" class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary">
+            <select class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-primary">
+              <option value="">Company Size</option>
+              <option>1-5 employees</option>
+              <option>6-10 employees</option>
+              <option>11-25 employees</option>
+              <option>26-50 employees</option>
+              <option>51-100 employees</option>
+              <option>100+ employees</option>
+            </select>
+            <select class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-primary">
+              <option value="">Service Interest</option>
+              <option>GeekPremium</option>
+              <option>GeekPremiumMB</option>
+              <option>GeekPremium+</option>
+              <option>Free Consultation</option>
+              <option>Other</option>
+            </select>
+            <textarea placeholder="Message" rows="4" class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary resize-none"></textarea>
+            <button type="submit" class="btn-primary w-full">Send Message</button>
+          </form>
+        </div>
+        <div class="space-y-4">
+          <div class="group flex gap-4 p-4 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/5 via-transparent to-black/50 hover:border-primary/50 transition-all duration-300">
+            <span class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary/25 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </span>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-white text-sm uppercase tracking-wider text-primary/90 mb-1">Quick Connect</h3>
+              <a href="tel:18552426660" class="text-white font-medium hover:text-primary transition-colors block">1-855-242-6660</a>
+              <p class="text-gray-500 text-xs mt-0.5">24/7 Support Available</p>
+            </div>
+          </div>
+          <div class="group flex gap-4 p-4 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/5 via-transparent to-black/50 hover:border-primary/50 transition-all duration-300">
+            <span class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary/25 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </span>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-white text-sm uppercase tracking-wider text-primary/90 mb-1">Email</h3>
+              <a href="mailto:support@geeksupportllc.com" class="text-white font-medium hover:text-primary transition-colors block break-all">support@geeksupportllc.com</a>
+            </div>
+          </div>
+          <div class="group flex gap-4 p-4 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/5 via-transparent to-black/50 hover:border-primary/50 transition-all duration-300">
+            <span class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary/25 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-white text-sm uppercase tracking-wider text-primary/90 mb-1">Business Hours</h3>
+              <p class="text-gray-300 text-sm">Mon – Sat: 8:00 AM – 6:00 PM</p>
+              <p class="text-gray-500 text-xs mt-0.5">Sunday: Closed</p>
+            </div>
+          </div>
+          <div class="group flex gap-4 p-4 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/5 via-transparent to-black/50 hover:border-primary/50 transition-all duration-300">
+            <span class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary/25 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </span>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-white text-sm uppercase tracking-wider text-primary/90 mb-1">Office Address</h3>
+              <p class="text-gray-300 text-sm leading-relaxed">4307 Vineland Rd, Suite H-12<br>Orlando, FL 32811, United States</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative overflow-hidden">
+    <div class="relative py-6 md:py-8 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary via-orange-600 to-black"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(249,115,22,0.9)_0%,rgba(234,88,12,0.8)_35%,rgba(0,0,0,0.95)_100%)]"></div>
+      <div class="absolute top-0 left-0 right-0 h-px bg-white/20"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-primary/30"></div>
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-white/80 text-xs font-medium uppercase tracking-[0.2em] mb-1">Free consultation</p>
+        <h3 class="text-xl md:text-2xl font-extrabold text-white mb-2 tracking-tight">Ready to get started?</h3>
+        <p class="text-white/70 text-sm max-w-xl mx-auto mb-4">Talk to our experts today. No obligation.</p>
+        <a href="#contact" class="btn-primary text-sm px-6 py-2.5">Schedule Free Consultation <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="relative footer-pattern footer-mesh bg-black">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-4">
+          <div class="lg:col-span-4">
+            <a href="#home" class="inline-flex items-center gap-2 mb-2 group">
+              <span class="flex items-center justify-center w-9 h-9 rounded-lg bg-primary/20 text-primary border border-primary/40"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></span>
+              <span class="text-lg font-bold text-white tracking-tight">Geek Repair</span>
+            </a>
+            <p class="text-gray-400 text-xs leading-relaxed max-w-sm mb-3">Your trusted IT partner. Expert support and repair.</p>
+            <div class="grid grid-cols-3 gap-1.5">
+              <div class="trust-badge rounded-md bg-white/[0.06] border border-gray-800 px-2 py-1.5 text-center cursor-default">
+                <p class="text-primary font-bold text-sm">24/7</p>
+                <p class="text-gray-500 text-[10px]">Support</p>
+              </div>
+              <div class="trust-badge rounded-md bg-white/[0.06] border border-gray-800 px-2 py-1.5 text-center cursor-default">
+                <p class="text-primary font-bold text-sm">US</p>
+                <p class="text-gray-500 text-[10px]">Based</p>
+              </div>
+              <div class="trust-badge rounded-md bg-white/[0.06] border border-gray-800 px-2 py-1.5 text-center cursor-default">
+                <p class="text-primary font-bold text-sm">✓</p>
+                <p class="text-gray-500 text-[10px]">Secure</p>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-2">
+            <h4 class="text-white font-bold text-[10px] uppercase tracking-[0.15em] text-primary/90 mb-2">Navigate</h4>
+            <ul class="space-y-1">
+              <li><a href="#home" class="footer-link text-gray-400 hover:text-primary transition text-sm inline-block">Home</a></li>
+              <li><a href="#services" class="footer-link text-gray-400 hover:text-primary transition text-sm inline-block">Services</a></li>
+              <li><a href="#pricing" class="footer-link text-gray-400 hover:text-primary transition text-sm inline-block">Pricing</a></li>
+              <li><a href="#plans" class="footer-link text-gray-400 hover:text-primary transition text-sm inline-block">Plans</a></li>
+              <li><a href="#contact" class="footer-link text-gray-400 hover:text-primary transition text-sm inline-block">Contact</a></li>
+            </ul>
+          </div>
+          <div class="lg:col-span-2">
+            <h4 class="text-white font-bold text-[10px] uppercase tracking-[0.15em] text-primary/90 mb-2">Legal</h4>
+            <ul class="space-y-1">
+              <li><a href="#privacy" class="footer-link text-gray-400 hover:text-primary transition text-sm inline-block">Privacy Policy</a></li>
+              <li><a href="#terms" class="footer-link text-gray-400 hover:text-primary transition text-sm inline-block">Terms & Conditions</a></li>
+            </ul>
+          </div>
+          <div class="lg:col-span-4">
+            <h4 class="text-white font-bold text-[10px] uppercase tracking-[0.15em] text-primary/90 mb-2">Get in touch</h4>
+            <div class="space-y-2">
+              <a href="tel:18552426660" class="flex items-center gap-2 p-2 rounded-lg bg-white/[0.06] border border-gray-800 hover:border-primary/40 hover:bg-white/[0.08] transition group">
+                <span class="flex items-center justify-center w-8 h-8 rounded-md bg-primary/20 text-primary shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></span>
+                <div><p class="text-white font-semibold text-xs">1-855-242-6660</p><p class="text-gray-500 text-[10px]">24/7</p></div>
+              </a>
+              <a href="mailto:support@geeksupportllc.com" class="flex items-center gap-2 p-2 rounded-lg bg-white/[0.06] border border-gray-800 hover:border-primary/40 hover:bg-white/[0.08] transition group">
+                <span class="flex items-center justify-center w-8 h-8 rounded-md bg-primary/20 text-primary shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></span>
+                <div><p class="text-white font-semibold text-xs break-all">support@geeksupportllc.com</p><p class="text-gray-500 text-[10px]">Reply 24h</p></div>
+              </a>
+              <div class="flex items-start gap-2 p-2 rounded-lg bg-white/[0.06] border border-gray-800">
+                <span class="flex items-center justify-center w-8 h-8 rounded-md bg-primary/20 text-primary shrink-0 mt-0.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></span>
+                <div><p class="text-gray-300 text-xs leading-relaxed">4307 Vineland Rd Suite H-12, Orlando, FL 32811</p><p class="text-gray-500 text-[10px] mt-0.5">Mon–Sat 8–6 · Sun closed</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p class="text-gray-500 text-xs">© 2025 Geek Repair. All rights reserved.</p>
+          <a href="#home" class="inline-flex items-center gap-1.5 text-gray-500 hover:text-primary transition text-xs font-medium">Back to top <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Privacy Policy Modal -->
+  <div id="privacy-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" aria-hidden="true" aria-modal="true" role="dialog">
+    <div class="modal-backdrop absolute inset-0" data-close-modal></div>
+    <div class="modal-panel relative w-full max-w-4xl rounded-3xl bg-gradient-to-br from-[#0a0a0a] via-[#0d0805] to-[#0a0a0a] border-2 border-primary/30 overflow-hidden flex flex-col">
+      <div class="relative px-6 py-5 border-b border-primary/20 shrink-0 bg-gradient-to-r from-black/80 via-[#0d0805]/80 to-black/80 backdrop-blur-sm">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.08),transparent)]"></div>
+        <div class="relative flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 text-primary">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            </span>
+            <div>
+              <h2 class="text-xl font-bold text-white tracking-tight">Privacy Policy</h2>
+              <p class="text-xs text-gray-400 mt-0.5">Your data privacy and security</p>
+            </div>
+          </div>
+          <button type="button" id="privacy-modal-close" class="flex items-center justify-center w-11 h-11 rounded-xl text-gray-400 hover:text-white hover:bg-primary/20 hover:border-primary/40 border border-transparent transition-all duration-200" aria-label="Close">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body overflow-y-auto flex-1 px-6 py-6 sm:px-8 sm:py-8 text-gray-300 text-sm leading-relaxed space-y-5">
+        <p class="text-primary font-medium">Privacy and Policy</p>
+        <p>This Privacy Policy ("Policy") outlines the complete details of the privacy-related procedures and guidelines followed by Geek Expert LLC in connection with its services under the name Geek Expert LLC. This Policy is active from the date mentioned above and shall continue to be valid and updated as described herein. This Privacy Policy is a key component of the Terms and Conditions available.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Definitions</h3>
+        <p>All initially capitalized terms shall carry the definitions provided in the Terms and Conditions, which this Privacy Policy is a key part of.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Application</h3>
+        <p>Geek Expert LLC is committed to offering onsite and online support to address various issues or questions faced by users of personal computers and related devices. When users create their profiles on the Portal for this purpose, they may share their personal details or information. This Policy is intended to convey that we value your privacy and pledge to handle and use your information with care. This Policy applies to individuals employed by or associated with Geek Care's clients, potential clients, visitors to the Geek Expert LLC website, recipients of business communications on behalf of Geek Expert LLC, and individuals submitting job inquiries to Geek Expert LLC. It does not apply to Geek Expert LLC employees. We commit not to use personal information in a manner inconsistent with the reasons for which it was collected or permitted by the users.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Form of Information</h3>
+        <p>This Policy covers information collected by Geek Expert LLC through both electronic and printed means of communication. Geek Expert LLC values your privacy and is dedicated to safeguarding any personal details you share with us. Geek Expert LLC may ask for specific Personal Information as outlined in this Policy. Please refrain from sharing any extra Personal Information with Geek Expert LLC unless specifically asked to do so.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">How does Geek Expert LLC gather personal information?</h3>
+        <p><strong class="text-gray-200">General Browsing:</strong> Geek Expert LLC collects navigation data regarding the sections you explore on our website. This helps us understand which parts of the site receive the most traffic. By doing so, we enhance the online experience for our visitors by offering more of the features, services, and products they value most. We may also collect additional non-personal data (such as domain type, browser version, service provider, and IP address) to gain insights into how you interact with our website—for example, noting the time you last accessed a particular page.</p>
+        <p><strong class="text-gray-200">Personal Information:</strong> Name, email, phone number, or other details you provide when contacting us.</p>
+        <p><strong class="text-gray-200">Chat Data:</strong> By chatting with us, you understand and agree that chats may be recorded, monitored, and stored by us and our authorized vendors for quality, training, and service improvement.</p>
+        <p><strong class="text-gray-200">Registration and Transactions:</strong> When you create or update an account, purchase service plans online, or request information through this site (such as your name, address, email, and phone number), the details you provide are stored securely on our private web server and internal systems. This information is used by Geek Expert LLC solely to provide you with requested services. Geek Expert LLC and its staff do not request, receive, or handle credit card details through any communication method—including the website, chat, testimonials, remote sessions, email, or phone calls. Geek Expert LLC does not store or display your credit card information on any platform or server.</p>
+        <p><strong class="text-gray-200">System information:</strong> Geek Expert LLC does not access any personal data (such as personal document contents or web browsing history) stored on your computer. The information gathered from the system may include items such as:</p>
+        <ul class="list-disc list-inside space-y-1 ml-2">
+          <li>Motherboard, BIOS version, processor, graphics, and memory setup;</li>
+          <li>Hard drives, disk controllers, and connected hardware devices;</li>
+          <li>Computer name &amp; IP address, operating system version, and browser type;</li>
+          <li>Current system condition like CPU usage and free disk space;</li>
+          <li>Applications active at the time of analysis.</li>
+        </ul>
+        <p><strong class="text-gray-200">Use of Cookies:</strong> Geek Expert LLC utilizes a browser function called cookies, which assigns a unique ID to your device. Cookies enable Geek Expert LLC to better adapt the website to your preferences, offering a more customized and efficient browsing experience. These cookies are generally stored on your device's hard drive and help Geek Expert LLC monitor your activity as you navigate through the site's pages. Additionally, cookies are used to manage support request tracking and identify whether you've visited the Geek Expert LLC website before. This helps registered users avoid repeatedly entering the same details during each visit.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Does Geek Expert LLC disclose your personal identifiable information?</h3>
+        <p>You should know that we may disclose certain information about you if required by law or if we believe in good faith that such action is necessary to comply with legal obligations or to protect our website users, the site itself, or the general public. Geek Expert LLC does not sell, lease, or share your email address with third parties. However, we may engage third-party providers to assist us in delivering services—such as processing payments, fulfilling orders, analyzing site usage, conducting surveys, or managing email communications. If any personally identifiable information (like your name, address, email, or phone number) is shared with these providers, we will ensure they are obligated to maintain strict confidentiality.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">What are my responsibilities in protecting my personal information?</h3>
+        <p><strong class="text-gray-200">Member account, password and security:</strong> If any of our Services require account creation, you must complete the registration form by providing current, accurate, and complete details. You'll also be asked to select a username and password. You are solely responsible for keeping your account and password confidential and for all activity carried out under your account. You agree to notify Geeks Plan right away if there is any unauthorized use of your account or any security breach. Geek Expert LLC is not responsible for any losses resulting from the unauthorized use of your account, whether you are aware of it or not. However, you may be held accountable for any damages caused to Geek Expert LLC or others due to unauthorized access to your account or password. You are not allowed to access another person's account without their express permission. We encourage you to keep your personal details accurate and up to date. You can review and update your information, including billing and shipping details, by logging into your account. When your account is created or updated, an email confirming your changes and preferences will be sent to you. Geek Expert LLC may also send out a periodic email newsletter. You have the option to subscribe to it during account setup, and you can opt out of the mailing list at any time if you no longer wish to receive it.</p>
+        <p><strong class="text-gray-200">Forgotten, Lost or Stolen Information:</strong> If you forget your password, we offer a feature that will send your password to the email address you used during registration. Because the "forgot password" function sends credentials to your registered email, it's important to use an email account that only you can access, especially if you do not want others to view or alter your Geek Expert LLC account information. Always be mindful when sharing any personal details about yourself or your children through any Communication Services. Geek Expert LLC neither manages nor endorses the content, discussions, or shared information in these services and expressly denies any responsibility for consequences related to your involvement in them. The opinions expressed by moderators or hosts do not represent Geek Expert LLC, as they are not official spokespersons, and their views are their own.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">What Are the Other Key Elements of Geek Expert LLC Privacy Policy?</h3>
+        <p><strong class="text-gray-200">Onward Transfer:</strong> Geek Expert LLC may share your Personal Information with a third party acting as its agent, ensuring they offer at least the same level of privacy protection required by applicable laws or principles.</p>
+        <p><strong class="text-gray-200">Access:</strong> Geek Expert LLC allows individuals to view the Personal Information we hold about them. You may request to correct, update, or delete inaccurate information, unless doing so would place an unreasonable burden on us or compromise another person's rights.</p>
+        <p><strong class="text-gray-200">Security:</strong> Geek Expert LLC employs reasonable measures to guard against loss, misuse, unauthorized access, disclosure, alteration, or destruction of Personal Information. Our site uses physical, electronic, and administrative procedures to safeguard your data, including SSL encryption in secure areas. While we strive to protect your data, we encourage you to use strong passwords, change them often, and browse securely. Information is stored on secure servers with limited authorized access.</p>
+        <p><strong class="text-gray-200">Data Integrity:</strong> Geek Expert LLC collects Personal Information relevant to its intended purpose and takes reasonable steps to ensure the data remains accurate, complete, current, and reliable for its use.</p>
+        <p><strong class="text-gray-200">Third Party Sites:</strong> Geek Expert LLC's website may include links to websites operated by third parties. We do not control their content or privacy practices and are not responsible for them. Some of these may feature Geek Expert LLC branding, but they are not managed by us. We advise you to review the privacy policies of all third-party or co-branded websites before sharing your information.</p>
+        <p><strong class="text-gray-200">Enforcement:</strong> Geek Expert LLC regularly reviews this Policy to ensure it remains accurate, visible, comprehensive, and compliant with privacy laws. If you have concerns, please reach out to us. We'll investigate and address complaints regarding misuse or disclosure of Personal Information in accordance with this Policy.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Changes to this Privacy Policy</h3>
+        <p>We reserve the right to revise or modify this Privacy Policy at any time, without prior notice, by updating the content on the Privacy Policy page of our Website. Such changes will become effective immediately once posted. Therefore, we recommend that you check this Privacy Policy regularly to stay informed of any updates or changes made.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">If you have any questions about this Privacy Policy, You can contact us:</h3>
+        <p><strong class="text-gray-200">By email:</strong> <a href="mailto:support@geekexpertllc.com" class="text-primary hover:underline">support@geekexpertllc.com</a></p>
+        <p><strong class="text-gray-200">By mail:</strong> 4307 Vineland Road, Suite H-12 Orlando, FL 32811</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms and Conditions Modal -->
+  <div id="terms-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" aria-hidden="true" aria-modal="true" role="dialog">
+    <div class="modal-backdrop absolute inset-0" data-close-terms-modal></div>
+    <div class="modal-panel relative w-full max-w-4xl rounded-3xl bg-gradient-to-br from-[#0a0a0a] via-[#0d0805] to-[#0a0a0a] border-2 border-primary/30 overflow-hidden flex flex-col">
+      <div class="relative px-6 py-5 border-b border-primary/20 shrink-0 bg-gradient-to-r from-black/80 via-[#0d0805]/80 to-black/80 backdrop-blur-sm">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.08),transparent)]"></div>
+        <div class="relative flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 text-primary">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </span>
+            <div>
+              <h2 class="text-xl font-bold text-white tracking-tight">Terms and Conditions</h2>
+              <p class="text-xs text-gray-400 mt-0.5">Service usage agreement</p>
+            </div>
+          </div>
+          <button type="button" id="terms-modal-close" class="flex items-center justify-center w-11 h-11 rounded-xl text-gray-400 hover:text-white hover:bg-primary/20 hover:border-primary/40 border border-transparent transition-all duration-200" aria-label="Close">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body overflow-y-auto flex-1 px-6 py-6 sm:px-8 sm:py-8 text-gray-300 text-sm leading-relaxed space-y-5">
+        <p class="text-primary font-medium">Terms and Conditions</p>
+        <p>Please read these terms and conditions carefully before using Our Service.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Interpretation and Definitions</h3>
+        <p><strong class="text-gray-200">Interpretation</strong><br>The words of which the initial letter is capitalised have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+        <p><strong class="text-gray-200">Definitions</strong><br>For the purposes of these Terms and Conditions:</p>
+        <p><strong class="text-gray-200">Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</p>
+        <p><strong class="text-gray-200">Country</strong> refers to: Florida, United States</p>
+        <p><strong class="text-gray-200">Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Geek Expert LLC.</p>
+        <p><strong class="text-gray-200">Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</p>
+        <p><strong class="text-gray-200">Service</strong> refers to the Website.</p>
+        <p><strong class="text-gray-200">Terms and Conditions</strong> (also referred as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service. This Terms and Conditions agreement has been created with the help of the Terms and Conditions Generator.</p>
+        <p><strong class="text-gray-200">Third-party Social Media Service</strong> means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.</p>
+        <p><strong class="text-gray-200">Website</strong> refers to Geek Expert LLC, accessible from https://geekexpertllc.com/</p>
+        <p><strong class="text-gray-200">You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Chat Services</h3>
+        <p>By using the chat feature, you acknowledge and agree that conversations may be recorded, stored, and monitored by us and our vendors.</p>
+        <p>Chat records may be used for training, compliance, and improving services.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Acknowledgment</h3>
+        <p>These are the Terms and Conditions governing the use of this Service and the agreement that operates between You and the Company. These Terms and Conditions set out the rights and obligations of all users regarding the use of the Service.</p>
+        <p>Your access to and use of the Service is conditioned on Your acceptance of and compliance with these Terms and Conditions. These Terms and Conditions apply to all visitors, users and others who access or use the Service.</p>
+        <p>By accessing or using the Service You agree to be bound by these Terms and Conditions. If You disagree with any part of these Terms and Conditions then You may not access the Service.</p>
+        <p>You represent that you are over the age of 18. The Company does not permit those under 18 to use the Service.</p>
+        <p>Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our Privacy Policy carefully before using Our Service.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Links to Other Websites</h3>
+        <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by the Company.</p>
+        <p>The Company has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that the Company shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
+        <p>We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites or services that You visit.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Termination</h3>
+        <p>We may terminate or suspend Your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if You breach these Terms and Conditions.</p>
+        <p>Upon termination, Your right to use the Service will cease immediately.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Limitation of Liability</h3>
+        <p>Notwithstanding any damages that You might incur, the entire liability of the Company and any of its suppliers under any provision of this Terms and Your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by You through the Service or 100 USD if You haven't purchased anything through the Service.</p>
+        <p>To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, loss of data or other information, for business interruption, for personal injury, loss of privacy arising out of or in any way related to the use of or inability to use the Service, third-party software and/or third-party hardware used with the Service, or otherwise in connection with any provision of this Terms), even if the Company or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.</p>
+        <p>Some states do not allow the exclusion of implied warranties or limitation of liability for incidental or consequential damages, which means that some of the above limitations may not apply. In these states, each party's liability will be limited to the greatest extent permitted by law.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">"AS IS" and "AS AVAILABLE" Disclaimer</h3>
+        <p>The Service is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Service, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Service will meet Your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.</p>
+        <p>Without limiting the foregoing, neither the Company nor any of the company's provider makes any representation or warranty of any kind, express or implied: (i) as to the operation or availability of the Service, or the information, content, and materials or products included thereon; (ii) that the Service will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information or content provided through the Service; or (iv) that the Service, its servers, the content, or e-mails sent from or on behalf of the Company are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components.</p>
+        <p>Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Governing Law</h3>
+        <p>The laws of the Country, excluding its conflicts of law rules, shall govern this Terms and Your use of the Service. Your use of the Application may also be subject to other local, state, national, or international laws.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Disputes Resolution</h3>
+        <p>If You have any concern or dispute about the Service, You agree to first try to resolve the dispute informally by contacting the Company.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">For European Union (EU) Users</h3>
+        <p>If You are a European Union consumer, you will benefit from any mandatory provisions of the law of the country in which You are resident.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">United States Legal Compliance</h3>
+        <p>You represent and warrant that (i) You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a "terrorist supporting" country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Severability and Waiver</h3>
+        <p><strong class="text-gray-200">Severability</strong><br>If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.</p>
+        <p><strong class="text-gray-200">Waiver</strong><br>Except as provided herein, the failure to exercise a right or to require performance of an obligation under these Terms shall not affect a party's ability to exercise such right or require such performance at any time thereafter nor shall the waiver of a breach constitute a waiver of any subsequent breach.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Translation Interpretation</h3>
+        <p>These Terms and Conditions may have been translated if We have made them available to You on our Service. You agree that the original English text shall prevail in the case of a dispute.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Changes to These Terms and Conditions</h3>
+        <p>We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. If a revision is material We will make reasonable efforts to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at Our sole discretion.</p>
+        <p>By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the website and the Service.</p>
+
+        <h3 class="text-white font-semibold mt-6 mb-2">Contact Us</h3>
+        <p>If you have any questions about these Terms and Conditions, You can contact us:</p>
+        <p><strong class="text-gray-200">By email:</strong> <a href="mailto:support@geekexpertllc.com" class="text-primary hover:underline">support@geekexpertllc.com</a></p>
+        <p><strong class="text-gray-200">By visiting this page on our website:</strong> <a href="https://geekexpertllc.com/pages/contact-us.html" target="_blank" rel="noopener" class="text-primary hover:underline">https://geekexpertllc.com/pages/contact-us.html</a></p>
+        <p><strong class="text-gray-200">By mail:</strong> 4307 Vineland Road, Suite H-12 Orlando, FL 32811</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing Modal -->
+  <div id="pricing-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" aria-hidden="true" aria-modal="true" role="dialog">
+    <div class="modal-backdrop absolute inset-0" data-close-pricing-modal></div>
+    <div class="modal-panel relative w-full max-w-6xl rounded-3xl bg-gradient-to-br from-[#0a0a0a] via-[#0d0805] to-[#0a0a0a] border-2 border-primary/30 overflow-hidden flex flex-col">
+      <div class="relative px-6 py-5 border-b border-primary/20 shrink-0 bg-gradient-to-r from-black/80 via-[#0d0805]/80 to-black/80 backdrop-blur-sm">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.08),transparent)]"></div>
+        <div class="relative flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 text-primary">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+            <div>
+              <h2 class="text-xl font-bold text-white tracking-tight">Pricing and Features</h2>
+              <p class="text-xs text-gray-400 mt-0.5">Compare all IT support plans</p>
+            </div>
+          </div>
+          <button type="button" id="pricing-modal-close" class="flex items-center justify-center w-11 h-11 rounded-xl text-gray-400 hover:text-white hover:bg-primary/20 hover:border-primary/40 border border-transparent transition-all duration-200" aria-label="Close">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body overflow-y-auto flex-1 px-4 sm:px-6 py-4 sm:py-6">
+        <p class="text-gray-400 text-sm mb-4">GeekSupport offers comprehensive IT support plans. GeekPremiumMB: $225/month for micro businesses (up to 3 employees). Compare all features below.</p>
+        <div class="overflow-x-auto rounded-xl border border-primary/20">
+          <table class="pricing-table w-full min-w-[800px] text-sm">
+            <thead>
+              <tr class="border-b border-primary/30">
+                <th class="text-left text-gray-400 font-semibold uppercase tracking-wider py-3 px-3 w-1/3">Services</th>
+                <th class="text-center py-3 px-3 min-w-[120px] bg-primary/10 border-l border-primary/20">
+                  <span class="inline-block px-2 py-0.5 rounded-full bg-primary text-black text-xs font-bold mb-1">Popular</span>
+                  <p class="text-white font-bold">GeekPremiumMB</p>
+                  <p class="text-primary font-bold">$225/mo</p>
+                </th>
+                <th class="text-center py-3 px-3 min-w-[120px] border-l border-gray-700/50">
+                  <p class="text-white font-bold">GeekPremium</p>
+                  <p class="text-primary font-bold">$75/person</p>
+                </th>
+                <th class="text-center py-3 px-3 min-w-[120px] border-l border-gray-700/50">
+                  <p class="text-white font-bold">GeekPremium+</p>
+                  <p class="text-primary font-bold">$95/person</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="4" class="text-primary font-semibold text-xs py-2 px-3 bg-primary/5">Number of Users</td></tr>
+              <tr><td class="text-gray-400 pl-5">—</td><td class="plan-popular text-center">Up to 3</td><td class="text-center">4+</td><td class="text-center">4+</td></tr>
+              <tr><td colspan="4" class="text-primary font-semibold text-xs py-2 px-3 bg-primary/5">Help Desk Support</td></tr>
+              <tr><td class="text-gray-400 pl-5">Unlimited phone, chat, email support</td><td class="plan-popular text-center check">✓</td><td class="text-center check">✓</td><td class="text-center check">✓</td></tr>
+              <tr><td class="text-gray-400 pl-5">Ticket system</td><td class="plan-popular text-center check">✓</td><td class="text-center check">✓</td><td class="text-center check">✓</td></tr>
+              <tr><td class="text-gray-400 pl-5">Mac & PC – 2 devices per user</td><td class="plan-popular text-center check">✓</td><td class="text-center check">✓</td><td class="text-center check">✓</td></tr>
+              <tr><td class="text-gray-400 pl-5">Device tuneups, troubleshooting, patches</td><td class="plan-popular text-center check">✓</td><td class="text-center check">✓</td><td class="text-center check">✓</td></tr>
+              <tr><td colspan="4" class="text-primary font-semibold text-xs py-2 px-3 bg-primary/5">Preventative Tune-Ups</td></tr>
+              <tr><td class="text-gray-400 pl-5">Adware/spyware clean up, virus protection</td><td class="plan-popular text-center check">✓</td><td class="text-center check">✓</td><td class="text-center check">✓</td></tr>
+              <tr><td colspan="4" class="text-primary font-semibold text-xs py-2 px-3 bg-primary/5">In-Office, Remote or Hybrid Teams</td></tr>
+              <tr><td class="text-gray-400 pl-5">Help desk, onboarding, network, VPN</td><td class="plan-popular text-center check">✓</td><td class="text-center check">✓</td><td class="text-center check">✓</td></tr>
+              <tr><td colspan="4" class="text-primary font-semibold text-xs py-2 px-3 bg-primary/5">Backups & Disaster Recovery</td></tr>
+              <tr><td class="text-gray-400 pl-5">Backup strategy, automatic backup</td><td class="plan-popular text-center check">✓</td><td class="text-center check">✓</td><td class="text-center check">✓</td></tr>
+              <tr><td colspan="4" class="text-primary font-semibold text-xs py-2 px-3 bg-primary/5">Systems Setup</td></tr>
+              <tr><td class="text-gray-400 pl-5">VPN, cloud, email, firewall config</td><td class="plan-popular text-center check">✓</td><td class="text-center check">✓</td><td class="text-center check">✓</td></tr>
+              <tr><td colspan="4" class="text-primary font-semibold text-xs py-2 px-3 bg-primary/5">Systems Monitoring & Cybersecurity</td></tr>
+              <tr><td class="text-gray-400 pl-5">Security suite, endpoint protection</td><td class="plan-popular text-center check">✓</td><td class="text-center check">✓</td><td class="text-center check">✓</td></tr>
+              <tr><td colspan="4" class="text-primary font-semibold text-xs py-2 px-3 bg-primary/5">Mobile Device Management</td></tr>
+              <tr><td class="text-gray-400 pl-5">MDM, device enrollment, encryption</td><td class="plan-popular text-center check">✓</td><td class="text-center dash">—</td><td class="text-center dash">—</td></tr>
+              <tr><td colspan="4" class="text-primary font-semibold text-xs py-2 px-3 bg-primary/5">Procurement & Provisioning</td></tr>
+              <tr><td class="text-gray-400 pl-5">Device procurement, imaging, lease</td><td class="plan-popular text-center check">✓</td><td class="text-center dash">—</td><td class="text-center dash">—</td></tr>
+              <tr><td colspan="4" class="text-primary font-semibold text-xs py-2 px-3 bg-primary/5">Data Compliance</td></tr>
+              <tr><td class="text-gray-400 pl-5">Compliance guidance & implementation</td><td class="plan-popular text-center check">✓</td><td class="text-center dash">—</td><td class="text-center dash">—</td></tr>
+              <tr><td colspan="4" class="text-primary font-semibold text-xs py-2 px-3 bg-primary/5">Virtual CIO (5 seats min)</td></tr>
+              <tr><td class="text-gray-400 pl-5">Technology advisor, assessment</td><td class="plan-popular text-center dash">—</td><td class="text-center dash">—</td><td class="text-center check">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-6 text-center">
+          <a href="#contact" class="btn-primary inline-flex" id="pricing-modal-get-started">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to top button -->
+  <button id="scroll-to-top" type="button" class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-black border-2 border-gray-800 hover:border-primary/50 shadow-xl hover:shadow-primary/20 transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary/50" aria-label="Scroll to top">
+    <span class="absolute inset-0 rounded-full overflow-hidden">
+      <svg class="progress-ring w-full h-full" viewBox="0 0 52 52" aria-hidden="true">
+        <circle class="progress-ring__bg" cx="26" cy="26" r="24" fill="none" stroke-width="2.5"/>
+        <circle id="scroll-progress-circle" class="progress-ring__fill" cx="26" cy="26" r="24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="150.8" stroke-dashoffset="150.8"/>
+      </svg>
+    </span>
+    <svg class="w-5 h-5 text-primary relative z-10 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+  </button>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      var menu = document.getElementById('mobile-menu');
+      var openIcon = document.getElementById('menu-icon-open');
+      var closeIcon = document.getElementById('menu-icon-close');
+      menu.classList.toggle('hidden');
+      openIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.add('hidden');
+        document.getElementById('menu-icon-open').classList.remove('hidden');
+        document.getElementById('menu-icon-close').classList.add('hidden');
+      });
+    });
+
+    // Privacy Policy modal
+    var privacyModal = document.getElementById('privacy-modal');
+    var privacyModalClose = document.getElementById('privacy-modal-close');
+    function openPrivacyModal() {
+      privacyModal.classList.add('open');
+      privacyModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePrivacyModal() {
+      privacyModal.classList.remove('open');
+      privacyModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('a[href="#privacy"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPrivacyModal();
+      });
+    });
+    privacyModalClose.addEventListener('click', closePrivacyModal);
+    privacyModal.querySelector('[data-close-modal]').addEventListener('click', closePrivacyModal);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && privacyModal.classList.contains('open')) closePrivacyModal();
+    });
+
+    // Terms and Conditions modal
+    var termsModal = document.getElementById('terms-modal');
+    var termsModalClose = document.getElementById('terms-modal-close');
+    function openTermsModal() {
+      termsModal.classList.add('open');
+      termsModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeTermsModal() {
+      termsModal.classList.remove('open');
+      termsModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('a[href="#terms"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        openTermsModal();
+      });
+    });
+    termsModalClose.addEventListener('click', closeTermsModal);
+    termsModal.querySelector('[data-close-terms-modal]').addEventListener('click', closeTermsModal);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && termsModal.classList.contains('open')) closeTermsModal();
+    });
+
+    // Pricing modal
+    var pricingModal = document.getElementById('pricing-modal');
+    var pricingModalClose = document.getElementById('pricing-modal-close');
+    function openPricingModal() {
+      pricingModal.classList.add('open');
+      pricingModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePricingModal() {
+      pricingModal.classList.remove('open');
+      pricingModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('a[href="#pricing"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPricingModal();
+      });
+    });
+    pricingModalClose.addEventListener('click', closePricingModal);
+    pricingModal.querySelector('[data-close-pricing-modal]').addEventListener('click', closePricingModal);
+    document.getElementById('pricing-modal-get-started').addEventListener('click', function() { closePricingModal(); });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && pricingModal.classList.contains('open')) closePricingModal();
+    });
+
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.');
+      this.reset();
+    });
+    (function() {
+      var btn = document.getElementById('scroll-to-top');
+      var circle = document.getElementById('scroll-progress-circle');
+      var circumference = 2 * Math.PI * 24;
+      function updateScrollProgress() {
+        var scrollY = window.scrollY || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight <= 0) return;
+        var progress = Math.min(scrollY / docHeight, 1);
+        circle.setAttribute('stroke-dashoffset', circumference * (1 - progress));
+        btn.classList.toggle('visible', scrollY > 300);
+      }
+      window.addEventListener('scroll', updateScrollProgress, { passive: true });
+      updateScrollProgress();
+      btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    })();
+  </script>
+</body>
+</html>
