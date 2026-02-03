@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -180,6 +181,92 @@
       box-shadow: 0 8px 32px -8px rgba(249,115,22,0.4), 0 0 0 1px rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.15);
     }
     .why-choose-cta:hover { box-shadow: 0 12px 40px -8px rgba(249,115,22,0.5), 0 0 0 1px rgba(255,255,255,0.1); }
+    /* Why you'll love section - bg image */
+    .love-section {
+      position: relative;
+      background: linear-gradient(180deg, #080808 0%, #0a0a0a 100%);
+      overflow: hidden;
+    }
+    .love-section .love-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .love-section .love-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.9) 100%);
+    }
+    .love-card {
+      background: linear-gradient(145deg, rgba(15,15,15,0.85) 0%, rgba(8,8,8,0.92) 100%);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 32px -8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
+    }
+    .love-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(249,115,22,0.2);
+      border-color: rgba(249,115,22,0.25);
+    }
+    .love-card .love-icon {
+      background: linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(249,115,22,0.06) 100%);
+      border: 1px solid rgba(249,115,22,0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .love-card:hover .love-icon {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px -4px rgba(249,115,22,0.3);
+    }
+    /* Get Unlimited IT Support CTA */
+    .it-support-cta {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 35%, #0b0b0b 100%);
+      box-shadow: 0 18px 50px -18px rgba(249,115,22,0.6), inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    .it-support-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 20% 0%, rgba(255,255,255,0.18), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+    .it-support-cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0);
+      background-size: 26px 26px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+    .cta-chip {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    /* Devices section */
+    .device-card {
+      background: linear-gradient(145deg, rgba(14,14,14,0.85) 0%, rgba(8,8,8,0.95) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 30px -12px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .device-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(249,115,22,0.35);
+      box-shadow: 0 18px 36px -16px rgba(249,115,22,0.35);
+    }
+    .device-icon {
+      background: linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(249,115,22,0.06) 100%);
+      border: 1px solid rgba(249,115,22,0.25);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .devices-image {
+      box-shadow: 0 26px 60px -20px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.08);
+    }
   </style>
 </head>
 <body class="smooth text-gray-100 antialiased min-h-screen">
@@ -259,8 +346,8 @@
             <a href="#services" class="btn-primary">Learn More</a>
           </div>
         </div>
-        <div class="relative order-last lg:order-last w-full max-w-lg lg:max-w-xl mx-auto">
-          <div class="grid grid-cols-12 gap-2 sm:gap-3 items-end" style="min-height: 320px;">
+        <div class="relative order-last lg:order-last w-full max-w-lg lg:max-w-xl mx-auto flex justify-center">
+          <div class="grid grid-cols-12 gap-2 sm:gap-3 items-end w-full mx-auto" style="min-height: 320px;">
             <div class="col-span-4 flex flex-col gap-2 sm:gap-3 min-h-[260px] sm:min-h-[320px] lg:min-h-[380px]">
               <div class="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl hero-glow flex-1 min-h-0 bg-darkCard">
                 <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=80" alt="Laptop repair - Geek Repair" class="absolute inset-0 w-full h-full object-cover" loading="eager">
@@ -460,30 +547,51 @@
     </div>
   </section>
 
-  <!-- Why you'll love -->
-  <section class="py-16 md:py-20 section-gradient-rl">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-12">Why you'll love Geek Repair</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="flex gap-4">
-          <span class="text-3xl font-bold text-primary">01</span>
-          <div>
-            <h3 class="font-semibold text-lg text-white mb-2">Experienced & Verified Technicians</h3>
-            <p class="text-gray-400 text-sm">Our team follows a multi-step quality process, ensuring experience and reliability you can trust.</p>
+  <!-- Why you'll love Geek Repair - with background image -->
+  <section class="love-section py-20 md:py-28 relative">
+    <div class="love-bg" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80');"></div>
+    <div class="love-bg-overlay"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-14">
+        <span class="inline-block text-primary font-semibold text-xs uppercase tracking-[0.2em] mb-3">Why choose us</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4" style="text-shadow: 0 2px 24px rgba(0,0,0,0.4);">Why you'll love Geek Repair</h2>
+        <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">Trusted by teams who value quality support and peace of mind.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div class="love-card group rounded-2xl p-6 sm:p-8">
+          <div class="flex items-start gap-4">
+            <span class="love-icon flex items-center justify-center w-14 h-14 rounded-xl shrink-0">
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            </span>
+            <div>
+              <span class="text-primary font-bold text-lg">01</span>
+              <h3 class="font-semibold text-lg text-white mt-1 mb-2 group-hover:text-primary transition-colors">Experienced & Verified Technicians</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Our team follows a multi-step quality process, ensuring experience and reliability you can trust.</p>
+            </div>
           </div>
         </div>
-        <div class="flex gap-4">
-          <span class="text-3xl font-bold text-primary">02</span>
-          <div>
-            <h3 class="font-semibold text-lg text-white mb-2">Service that's tailored to you</h3>
-            <p class="text-gray-400 text-sm">Discuss your individual situation with an Expert who specializes in your topic, 24/7.</p>
+        <div class="love-card group rounded-2xl p-6 sm:p-8 md:mt-6">
+          <div class="flex items-start gap-4">
+            <span class="love-icon flex items-center justify-center w-14 h-14 rounded-xl shrink-0">
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </span>
+            <div>
+              <span class="text-primary font-bold text-lg">02</span>
+              <h3 class="font-semibold text-lg text-white mt-1 mb-2 group-hover:text-primary transition-colors">Service that's tailored to you</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Discuss your individual situation with an Expert who specializes in your topic, 24/7.</p>
+            </div>
           </div>
         </div>
-        <div class="flex gap-4">
-          <span class="text-3xl font-bold text-primary">03</span>
-          <div>
-            <h3 class="font-semibold text-lg text-white mb-2">Save valuable time at home</h3>
-            <p class="text-gray-400 text-sm">Connect from any device. No driving across town or wasted time in the waiting room.</p>
+        <div class="love-card group rounded-2xl p-6 sm:p-8">
+          <div class="flex items-start gap-4">
+            <span class="love-icon flex items-center justify-center w-14 h-14 rounded-xl shrink-0">
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+            <div>
+              <span class="text-primary font-bold text-lg">03</span>
+              <h3 class="font-semibold text-lg text-white mt-1 mb-2 group-hover:text-primary transition-colors">Save valuable time at home</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Connect from any device. No driving across town or wasted time in the waiting room.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -492,39 +600,138 @@
 
   <!-- CTA Banner -->
   <section class="py-16 md:py-20 section-gradient-diagonal">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="relative rounded-3xl overflow-hidden border-2 border-primary px-8 py-12 md:px-14 md:py-16 text-center md:flex md:items-center md:justify-between md:gap-8 md:text-left">
-        <div class="absolute inset-0 bg-gradient-to-r from-primary via-orange-500 to-primary"></div>
-        <div class="absolute inset-0 bg-[linear-gradient(135deg,transparent_0%,rgba(0,0,0,0.03)_50%,transparent_100%)]"></div>
-        <div class="relative mb-8 md:mb-0">
-          <h2 class="text-2xl md:text-3xl font-bold text-black mb-2">Get Unlimited IT Support</h2>
-          <p class="text-black/70 text-lg">Starting at $75/month per user • Minimum of 3 users</p>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="relative it-support-cta rounded-3xl overflow-hidden border border-primary/40 px-8 py-12 md:px-14 md:py-16 text-center md:text-left">
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
+          <div>
+            <span class="cta-chip inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-white/90 text-xs font-semibold uppercase tracking-widest mb-4">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-lg shadow-emerald-400/40"></span>
+              Always On Support
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Get Unlimited IT Support</h2>
+            <p class="text-white/85 text-base md:text-lg mb-6">Starting at $75/month per user • Minimum of 3 users</p>
+            <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+              <span class="px-3 py-2 rounded-xl bg-black/30 border border-white/15 text-white/90 text-xs font-semibold">24/7 Helpdesk</span>
+              <span class="px-3 py-2 rounded-xl bg-black/30 border border-white/15 text-white/90 text-xs font-semibold">Remote + Onsite</span>
+              <span class="px-3 py-2 rounded-xl bg-black/30 border border-white/15 text-white/90 text-xs font-semibold">Certified Techs</span>
+            </div>
+          </div>
+          <div class="text-center md:text-right">
+            <div class="inline-flex flex-col items-center md:items-end gap-2 mb-5">
+              <span class="text-white/80 text-sm">Plan starts at</span>
+              <span class="text-4xl md:text-5xl font-extrabold text-white">$75<span class="text-lg font-semibold text-white/70">/user</span></span>
+              <span class="text-white/60 text-xs">per month</span>
+            </div>
+            <a href="#contact" class="btn-secondary shrink-0 inline-flex items-center gap-2">
+              Schedule FREE consultation
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
         </div>
-        <a href="#contact" class="btn-secondary shrink-0 relative z-10">Schedule FREE consultation <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
       </div>
     </div>
   </section>
 
   <!-- Devices -->
-  <section class="py-16 md:py-20 section-gradient-diagonal-2">
+  <section class="py-18 md:py-24 section-gradient-diagonal-2">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">Comprehensive Technical Support for Every Device</h2>
-      <p class="text-gray-400 text-center mb-10">You & your business rely on these—we've got you covered.</p>
-      <div class="flex flex-wrap justify-center gap-3">
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">WI-FI</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Printers</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Laptops</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">PC/Mac</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Tablets</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">iOS/Android</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Network Setup</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Servers</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Cloud Services</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Storage</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Security Cameras</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Scanners</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Projectors</span>
-        <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/15 to-black border border-primary/40 text-white text-sm font-medium hover:from-primary/25 hover:border-primary/60 transition">Peripherals</span>
+      <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-xs font-semibold uppercase tracking-widest mb-4">
+            <i class="ri-shield-check-line"></i>
+            Device Coverage
+          </span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">Comprehensive Technical Support for Every Device</h2>
+          <p class="text-gray-400 mb-8">You & your business rely on these—we've got you covered.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary"><i class="ri-wifi-line"></i></span>
+              <span class="text-white text-sm font-semibold">Wi‑Fi</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary"><i class="ri-printer-line"></i></span>
+              <span class="text-white text-sm font-semibold">Printers</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 6a2 2 0 012-2h14a2 2 0 012 2v8H3V6z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2 18h20M8 18v2m8-2v2"/>
+                </svg>
+              </span>
+              <span class="text-white text-sm font-semibold">Laptops</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary"><i class="ri-macbook-line"></i></span>
+              <span class="text-white text-sm font-semibold">PC / Mac</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary"><i class="ri-tablet-line"></i></span>
+              <span class="text-white text-sm font-semibold">Tablets</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary"><i class="ri-smartphone-line"></i></span>
+              <span class="text-white text-sm font-semibold">iOS / Android</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary"><i class="ri-router-line"></i></span>
+              <span class="text-white text-sm font-semibold">Network Setup</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary"><i class="ri-server-line"></i></span>
+              <span class="text-white text-sm font-semibold">Servers</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary"><i class="ri-cloud-line"></i></span>
+              <span class="text-white text-sm font-semibold">Cloud Services</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary"><i class="ri-hard-drive-2-line"></i></span>
+              <span class="text-white text-sm font-semibold">Storage</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10l9-4 8 4-9 4-8-4z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12v4a2 2 0 01-2 2h-4"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 14v2a2 2 0 002 2h3"/>
+                  <circle cx="12" cy="14" r="2.5" stroke-width="1.8"/>
+                </svg>
+              </span>
+              <span class="text-white text-sm font-semibold">Security Cameras</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary"><i class="ri-scan-line"></i></span>
+              <span class="text-white text-sm font-semibold">Scanners</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary"><i class="ri-projector-line"></i></span>
+              <span class="text-white text-sm font-semibold">Projectors</span>
+            </div>
+            <div class="device-card flex items-center gap-3 rounded-2xl p-4">
+              <span class="device-icon w-10 h-10 rounded-xl flex items-center justify-center text-primary"><i class="ri-keyboard-line"></i></span>
+              <span class="text-white text-sm font-semibold">Peripherals</span>
+            </div>
+          </div>
+        </div>
+        <div class="relative flex justify-center">
+          <div class="devices-image relative rounded-3xl overflow-hidden border border-white/10 bg-black/40 p-4 sm:p-6 mx-auto w-full max-w-md sm:max-w-lg">
+            <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/3]">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80" alt="Device diagnostics" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+            </div>
+            <div class="mt-6 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10">
+              <div class="flex items-center gap-3 text-white">
+                <span class="w-10 h-10 rounded-xl bg-primary/20 text-primary flex items-center justify-center"><i class="ri-cpu-line"></i></span>
+                <div>
+                  <p class="text-sm font-semibold">All‑in‑one coverage</p>
+                  <p class="text-xs text-white/70">From Wi‑Fi to servers and security</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -z-10 -bottom-6 -right-6 w-40 h-40 rounded-full bg-primary/10 blur-3xl"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -532,31 +739,77 @@
   <!-- Benefits -->
   <section class="py-16 md:py-20 section-gradient-radial">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">Benefits of Outsourcing Your IT Support</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
-          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
-          <div class="relative"><h3 class="font-semibold text-primary mb-2 group-hover:text-orange-400 transition">Dedicated IT Team</h3><p class="text-gray-400 text-sm">US-based technicians handle your questions, resolve issues, and keep your business running smoothly and securely.</p></div>
+      <div class="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-10 items-center">
+        <div class="order-2 lg:order-2">
+          <p class="text-primary text-sm font-semibold uppercase tracking-[0.2em] mb-3">Outsource smarter</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Benefits of Outsourcing Your IT Support</h2>
+          <p class="text-gray-400 mb-8">Reduce downtime, strengthen security, and keep your team focused on growth while we handle the tech.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="relative group rounded-2xl p-5 border border-white/10 bg-black/40 overflow-hidden transition-all duration-300 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/15">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/15 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+              <div class="relative">
+                <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-primary/15 text-primary border border-primary/30 mb-3"><i class="ri-team-line"></i></span>
+                <h3 class="font-semibold text-white mb-2 group-hover:text-primary transition">Dedicated IT Team</h3>
+                <p class="text-gray-400 text-sm">US-based technicians resolve issues and keep operations secure.</p>
+              </div>
+            </div>
+            <div class="relative group rounded-2xl p-5 border border-white/10 bg-black/40 overflow-hidden transition-all duration-300 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/15">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/15 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+              <div class="relative">
+                <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-primary/15 text-primary border border-primary/30 mb-3"><i class="ri-cpu-line"></i></span>
+                <h3 class="font-semibold text-white mb-2 group-hover:text-primary transition">Modern Technology</h3>
+                <p class="text-gray-400 text-sm">Proactive tools prevent problems before they spread.</p>
+              </div>
+            </div>
+            <div class="relative group rounded-2xl p-5 border border-white/10 bg-black/40 overflow-hidden transition-all duration-300 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/15">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/15 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+              <div class="relative">
+                <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-primary/15 text-primary border border-primary/30 mb-3"><i class="ri-settings-3-line"></i></span>
+                <h3 class="font-semibold text-white mb-2 group-hover:text-primary transition">Service Automation</h3>
+                <p class="text-gray-400 text-sm">Faster fixes, consistent quality, less manual work.</p>
+              </div>
+            </div>
+            <div class="relative group rounded-2xl p-5 border border-white/10 bg-black/40 overflow-hidden transition-all duration-300 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/15">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/15 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+              <div class="relative">
+                <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-primary/15 text-primary border border-primary/30 mb-3"><i class="ri-headphone-line"></i></span>
+                <h3 class="font-semibold text-white mb-2 group-hover:text-primary transition">Quick Remote Response</h3>
+                <p class="text-gray-400 text-sm">Phone, chat, and email support without delays.</p>
+              </div>
+            </div>
+            <div class="relative group rounded-2xl p-5 border border-white/10 bg-black/40 overflow-hidden transition-all duration-300 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/15">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/15 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+              <div class="relative">
+                <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-primary/15 text-primary border border-primary/30 mb-3"><i class="ri-price-tag-3-line"></i></span>
+                <h3 class="font-semibold text-white mb-2 group-hover:text-primary transition">Flat Pricing</h3>
+                <p class="text-gray-400 text-sm">Predictable costs with no surprise invoices.</p>
+              </div>
+            </div>
+            <div class="relative group rounded-2xl p-5 border border-white/10 bg-black/40 overflow-hidden transition-all duration-300 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/15">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/15 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
+              <div class="relative">
+                <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-primary/15 text-primary border border-primary/30 mb-3"><i class="ri-shield-check-line"></i></span>
+                <h3 class="font-semibold text-white mb-2 group-hover:text-primary transition">Safe & Secure</h3>
+                <p class="text-gray-400 text-sm">Encryption, scans, and threat defense included.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
-          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
-          <div class="relative"><h3 class="font-semibold text-primary mb-2 group-hover:text-orange-400 transition">Modern Technology</h3><p class="text-gray-400 text-sm">We use up-to-date tools to prevent issues and resolve them quickly when they occur.</p></div>
-        </div>
-        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
-          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
-          <div class="relative"><h3 class="font-semibold text-primary mb-2 group-hover:text-orange-400 transition">Service Automation</h3><p class="text-gray-400 text-sm">Automation improves accuracy, quality, and efficiency across all IT support work.</p></div>
-        </div>
-        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
-          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
-          <div class="relative"><h3 class="font-semibold text-primary mb-2 group-hover:text-orange-400 transition">Quick Remote Response</h3><p class="text-gray-400 text-sm">Tech experts available by phone, email, or chat to support you and your team.</p></div>
-        </div>
-        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
-          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
-          <div class="relative"><h3 class="font-semibold text-primary mb-2 group-hover:text-orange-400 transition">Flat Pricing, Fair Contracts</h3><p class="text-gray-400 text-sm">Transparent pricing with no hidden costs or billing surprises.</p></div>
-        </div>
-        <div class="relative group rounded-2xl p-6 border-2 border-primary/30 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20">
-          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-black opacity-70 group-hover:opacity-100 transition-opacity"></div>
-          <div class="relative"><h3 class="font-semibold text-primary mb-2 group-hover:text-orange-400 transition">Safe & Secure</h3><p class="text-gray-400 text-sm">Licensed security suite with encryption, vulnerability scans, and threat defense for every client.</p></div>
+        <div class="relative order-1 lg:order-1">
+          <div class="relative rounded-3xl overflow-hidden border border-white/10">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=80" alt="IT support team collaboration" class="w-full h-[420px] object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10">
+              <div class="flex items-center gap-3 text-white">
+                <span class="w-10 h-10 rounded-xl bg-primary/20 text-primary flex items-center justify-center"><i class="ri-shield-check-line"></i></span>
+                <div>
+                  <p class="text-sm font-semibold">Business-grade protection</p>
+                  <p class="text-xs text-white/70">Monitoring, patching, and incident response</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -z-10 -bottom-6 -right-6 w-40 h-40 rounded-full bg-primary/10 blur-3xl"></div>
         </div>
       </div>
     </div>
