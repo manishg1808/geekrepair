@@ -109,6 +109,11 @@
     #privacy-modal .modal-body::-webkit-scrollbar-track, #terms-modal .modal-body::-webkit-scrollbar-track, #pricing-modal .modal-body::-webkit-scrollbar-track, #callback-modal .modal-body::-webkit-scrollbar-track, #consultation-modal .modal-body::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 4px; }
     #privacy-modal .modal-body::-webkit-scrollbar-thumb, #terms-modal .modal-body::-webkit-scrollbar-thumb, #pricing-modal .modal-body::-webkit-scrollbar-thumb, #callback-modal .modal-body::-webkit-scrollbar-thumb, #consultation-modal .modal-body::-webkit-scrollbar-thumb { background: #f97316; border-radius: 4px; }
     #privacy-modal .modal-body::-webkit-scrollbar-thumb:hover, #terms-modal .modal-body::-webkit-scrollbar-thumb:hover, #pricing-modal .modal-body::-webkit-scrollbar-thumb:hover, #callback-modal .modal-body::-webkit-scrollbar-thumb:hover, #consultation-modal .modal-body::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+    .plans-scroll { scrollbar-width: thin; scrollbar-color: #f97316 rgba(255,255,255,0.05); }
+    .plans-scroll::-webkit-scrollbar { width: 6px; }
+    .plans-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 3px; }
+    .plans-scroll::-webkit-scrollbar-thumb { background: #f97316; border-radius: 3px; }
+    .plans-scroll::-webkit-scrollbar-thumb:hover { background: #ea580c; }
     /* Pricing table */
     .pricing-table { border-collapse: separate; border-spacing: 0; }
     .pricing-table th, .pricing-table td { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0.75rem 1rem; text-align: left; }
@@ -540,13 +545,11 @@
             </span>
             1-855-242-6660
           </a>
-          <button type="button" class="open-consultation-modal btn-primary text-xs px-5 py-2.5 cursor-pointer">Free Schedule</button>
         </div>
         <div class="flex lg:hidden items-center gap-2">
           <a href="tel:18552426660" class="flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Call">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
           </a>
-          <button type="button" class="open-consultation-modal btn-primary text-xs px-4 py-2.5 cursor-pointer shrink-0">Free Schedule</button>
           <button id="menu-btn" class="flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Menu">
             <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -1027,18 +1030,32 @@
             </div>
           </div>
         </div>
-        <div class="relative order-1 lg:order-1">
-          <div class="relative rounded-3xl overflow-hidden border border-white/10">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=80" alt="IT support team collaboration" class="w-full h-[420px] object-cover" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
-            <div class="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10">
-              <div class="flex items-center gap-3 text-white">
-                <span class="w-10 h-10 rounded-xl bg-primary/20 text-primary flex items-center justify-center"><i class="ri-shield-check-line"></i></span>
-                <div>
-                  <p class="text-sm font-semibold">Business-grade protection</p>
-                  <p class="text-xs text-white/70">Monitoring, patching, and incident response</p>
-                </div>
+        <div class="relative order-1 lg:order-1 -mt-2 sm:-mt-4 -mx-1 sm:-mx-2">
+          <div class="relative flex flex-col sm:flex-row items-end sm:items-stretch gap-0">
+            <div class="relative w-full sm:w-[55%] sm:mr-[-8%] mt-4 sm:mt-14 group z-10">
+              <div class="absolute -inset-1 bg-gradient-to-r from-primary/40 via-primary/20 to-transparent rounded-[1.75rem] blur-sm opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div class="relative rounded-[1.5rem] overflow-hidden border border-white/20 shadow-2xl ring-2 ring-primary/30 group-hover:ring-primary/60 transition-all duration-300 transform group-hover:-translate-y-1 group-hover:scale-[1.02]">
+                <img src="assest/6.png" alt="Dedicated IT Team - Benefits of outsourcing IT support" class="w-full h-[260px] sm:h-[300px] object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
+                <div class="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-primary/90 text-black text-xs font-bold uppercase tracking-wider shadow-lg">Dedicated Team</div>
+                <div class="absolute bottom-3 left-3 right-3 text-white/90 text-sm font-medium">Modern tools & quick support</div>
               </div>
+            </div>
+            <div class="relative w-full sm:w-[55%] sm:-mt-12 group z-[5]">
+              <div class="absolute -inset-1 bg-gradient-to-l from-primary/40 via-primary/10 to-transparent rounded-[1.75rem] blur-sm opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div class="relative rounded-[1.5rem] overflow-hidden border border-white/20 shadow-2xl ring-2 ring-white/10 group-hover:ring-primary/50 transition-all duration-300 transform group-hover:translate-y-1 group-hover:scale-[1.02]">
+                <img src="assest/7.png" alt="Global IT Solutions - Secure and managed IT infrastructure" class="w-full h-[260px] sm:h-[300px] object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute top-3 right-3 px-3 py-1.5 rounded-full bg-black/80 backdrop-blur border border-primary/50 text-primary text-xs font-bold uppercase tracking-wider">Secure & Scalable</div>
+                <div class="absolute bottom-3 left-3 right-3 text-white/90 text-sm font-medium">24/7 monitoring & growth</div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 relative rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-r from-black/60 to-black/40 p-4 flex items-center gap-3 backdrop-blur-sm">
+            <span class="w-10 h-10 rounded-xl bg-primary/20 text-primary flex items-center justify-center shrink-0"><i class="ri-shield-check-line"></i></span>
+            <div>
+              <p class="text-sm font-semibold text-white">Business-grade protection</p>
+              <p class="text-xs text-white/70">Monitoring, patching, and incident response</p>
             </div>
           </div>
           <div class="absolute -z-10 -bottom-6 -right-6 w-40 h-40 rounded-full bg-primary/10 blur-3xl"></div>
@@ -1051,51 +1068,110 @@
   <section id="plans" class="py-16 md:py-20 section-gradient-lr plans-section-pattern relative">
     <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
       <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">Choose the Right Plan for Your Business</h2>
-      <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">Comprehensive IT support plans. GeekPremiumMB: $225/month for micro businesses (up to 3 employees).</p>
+      <p class="text-gray-400 text-center mb-12 max-w-3xl mx-auto leading-relaxed">GeekSupport offers comprehensive IT support plans designed to cater to various business requirements, whether you operate from your home or collaborate in an office setting with your team. Now offering the GeekPremiumMB package for a fixed rate of $225/month, specifically tailored for micro businesses with a team of up to three employees.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="relative rounded-2xl border-2 border-primary p-8 overflow-hidden">
-          <span class="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-primary text-black text-xs font-bold shadow-lg">Most Popular</span>
-          <div class="relative">
+        <!-- PremiumMB -->
+        <div class="relative rounded-2xl border-2 border-primary/40 p-8 overflow-hidden bg-black/30 flex flex-col">
+          <div class="relative flex flex-col flex-1">
             <h3 class="text-xl font-bold text-white mb-1">PremiumMB</h3>
-            <p class="text-2xl font-bold text-primary mb-4">$225/month</p>
+            <p class="text-2xl font-bold text-primary mb-1">$225/month</p>
             <p class="text-gray-300 text-sm mb-6">Up to 3 users</p>
             <ul class="space-y-2 text-sm text-gray-400 mb-6">
-              <li>• Tailored for micro businesses (up to 3 employees)</li>
+              <li>• Tailored for micro businesses with a team of up to three employees</li>
               <li>• Flat, transparent pricing</li>
               <li>• Comprehensive IT Support</li>
-              <li>• 2 devices per user</li>
+              <li>• Access to all GeekPremium features</li>
+              <li>• Includes support for 2 devices per user</li>
+              <li>• And much more...</li>
             </ul>
-            <a href="#contact" class="btn-primary w-full">Get Started</a>
+            <a href="#contact" class="btn-primary w-full mt-auto">Get Started</a>
           </div>
         </div>
-        <div class="relative rounded-2xl border-2 border-primary/40 p-8 overflow-hidden">
+        <!-- Premium - Most Popular -->
+        <div class="relative rounded-2xl border-2 border-primary p-8 overflow-hidden bg-black/30">
+          <span class="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-primary text-black text-xs font-bold shadow-lg">Most Popular</span>
           <div class="relative">
             <h3 class="text-xl font-bold text-white mb-1">Premium</h3>
-            <p class="text-2xl font-bold text-primary mb-4">$75/month per person</p>
-            <p class="text-gray-300 text-sm mb-6">4+ Users</p>
-            <ul class="space-y-2 text-sm text-gray-400 mb-6">
-              <li>• Unlimited phone, chat, email support</li>
-              <li>• Mac & PC – 2 devices per user</li>
-              <li>• Remote & on-prem workforce support</li>
-              <li>• Backups & disaster recovery</li>
-            </ul>
+            <p class="text-2xl font-bold text-primary mb-1">$75/month per person</p>
+            <p class="text-gray-300 text-sm mb-4">4+ Users</p>
+            <div class="space-y-4 text-sm text-gray-400 mb-6 max-h-[420px] overflow-y-auto pr-1 plans-scroll">
+              <div>
+                <p class="text-primary font-semibold text-xs uppercase tracking-wider mb-1">Help Desk Support</p>
+                <ul class="space-y-1">
+                  <li>• Unlimited phone, chat, and email support</li>
+                  <li>• Support for Mac and PC - 2 devices per user</li>
+                  <li>• Troubleshooting, regular tune-ups, and updates</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-primary font-semibold text-xs uppercase tracking-wider mb-1">Support for Remote & On-Prem Workforce</p>
+                <ul class="space-y-1">
+                  <li>• New employee onboarding & device configuration</li>
+                  <li>• VPN configuration & home network troubleshooting</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-primary font-semibold text-xs uppercase tracking-wider mb-1">Backups & Disaster Recovery</p>
+                <ul class="space-y-1">
+                  <li>• Automatic & secure backup of systems and data</li>
+                  <li>• Backup strategy & support for disaster recovery planning</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-primary font-semibold text-xs uppercase tracking-wider mb-1">Systems Monitoring & Cybersecurity</p>
+                <ul class="space-y-1">
+                  <li>• Access to GeekSupport's licensed security suite</li>
+                  <li>• Advanced cloud-based threat defense</li>
+                  <li>• Email scans for malware and malicious software</li>
+                  <li>• Network, computer, & systems vulnerability scans</li>
+                </ul>
+              </div>
+            </div>
             <a href="#pricing" class="btn-primary w-full" onclick="var m=document.getElementById('pricing-modal');if(m){m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';} return false;">Learn More</a>
           </div>
         </div>
-        <div class="relative rounded-2xl border-2 border-primary/40 p-8 overflow-hidden">
+        <!-- Premium+ -->
+        <div class="relative rounded-2xl border-2 border-primary/40 p-8 overflow-hidden bg-black/30">
           <div class="relative">
             <h3 class="text-xl font-bold text-white mb-1">Premium+</h3>
-            <p class="text-2xl font-bold text-primary mb-4">$95/month per person</p>
-            <p class="text-gray-300 text-sm mb-6">All Premium Features</p>
-            <ul class="space-y-2 text-sm text-gray-400 mb-6">
-              <li>• Mobile device management</li>
-              <li>• Procurement & provisioning</li>
-              <li>• Data compliance</li>
-              <li>• Virtual CIO (4 seats min)</li>
-            </ul>
+            <p class="text-2xl font-bold text-primary mb-1">$95/month per person</p>
+            <p class="text-gray-300 text-sm mb-4">All Premium Features</p>
+            <div class="space-y-4 text-sm text-gray-400 mb-6 max-h-[420px] overflow-y-auto pr-1 plans-scroll">
+              <div>
+                <p class="text-primary font-semibold text-xs uppercase tracking-wider mb-1">Mobile Device Management</p>
+                <ul class="space-y-1">
+                  <li>• Monitoring, management, & security</li>
+                  <li>• Device enrollment, configuration, & troubleshooting</li>
+                  <li>• Computer lockdown at termination</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-primary font-semibold text-xs uppercase tracking-wider mb-1">Procurement & Provisioning (other fees apply)</p>
+                <ul class="space-y-1">
+                  <li>• Research & recommendations</li>
+                  <li>• Device procurement from ordering to delivery</li>
+                  <li>• Secure inventory storage and management</li>
+                  <li>• Device provisioning</li>
+                  <li>• Lease options available</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-primary font-semibold text-xs uppercase tracking-wider mb-1">Data Compliance</p>
+              </div>
+              <div>
+                <p class="text-primary font-semibold text-xs uppercase tracking-wider mb-1">Virtual CIO (4 seats minimum required)</p>
+                <ul class="space-y-1">
+                  <li>• Resource who acts as a trusted technology advisor</li>
+                  <li>• Technology assessment and plan</li>
+                </ul>
+              </div>
+            </div>
             <a href="#pricing" class="btn-primary w-full" onclick="var m=document.getElementById('pricing-modal');if(m){m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';} return false;">Learn More</a>
           </div>
         </div>
+      </div>
+      <div class="text-center mt-10">
+        <a href="#pricing" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-primaryLight transition" onclick="var m=document.getElementById('pricing-modal');if(m){m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';} return false;">Learn More About Pricing <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
       </div>
     </div>
   </section>
@@ -1361,7 +1437,7 @@
               <p class="text-xs text-gray-400 mt-0.5">Contact us today for a free consultation</p>
             </div>
           </div>
-          <button type="button" id="consultation-modal-close" class="flex items-center justify-center w-11 h-11 rounded-xl text-gray-400 hover:text-white hover:bg-primary/20 hover:border-primary/40 border border-transparent transition-all duration-200" aria-label="Close">
+          <button type="button" id="consultation-modal-close" class="flex items-center justify-center w-11 h-11 rounded-xl text-gray-400 hover:text-white hover:bg-primary/20 hover:border-primary/40 border border-transparent transition-all duration-200" aria-label="Close" onclick="var cm=document.getElementById('consultation-modal');if(cm){cm.classList.remove('open');cm.setAttribute('aria-hidden','true');}document.body.style.overflow='';return false;">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
@@ -1700,8 +1776,12 @@
             </tbody>
           </table>
         </div>
-        <div class="mt-6 text-center">
-          <a href="#contact" class="btn-primary inline-flex" id="pricing-modal-get-started">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <a href="#" class="btn-primary inline-flex items-center gap-2" id="pricing-modal-get-started" onclick="closeModal('pricing-modal'); setTimeout(function(){ var cm = document.getElementById('consultation-modal'); if(cm){ cm.classList.add('open'); cm.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; } }, 320); return false;">Get Started <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+          <a href="tel:18552426660" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 border-2 border-primary/40 text-white hover:bg-primary/20 hover:border-primary transition-all font-semibold" title="1-855-242-6660">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            Call Now
+          </a>
         </div>
       </div>
     </div>
@@ -1948,7 +2028,6 @@
     });
     pricingModalClose.addEventListener('click', closePricingModal);
     pricingModal.querySelector('[data-close-pricing-modal]').addEventListener('click', closePricingModal);
-    document.getElementById('pricing-modal-get-started').addEventListener('click', function() { closePricingModal(); });
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && pricingModal.classList.contains('open')) closePricingModal();
     });
