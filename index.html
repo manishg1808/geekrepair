@@ -86,12 +86,27 @@
     .nav-link-home .home-icon { transition: transform 0.25s ease; }
     .nav-link-home:hover .home-icon { transform: scale(1.1); color: #f97316; }
     .card-ask-gradient { background: linear-gradient(135deg, #f97316 0%, #ea580c 40%, #0a0a0a 100%); }
-    /* Scroll to top button */
-    #scroll-to-top { opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease; }
-    #scroll-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    /* Scroll to top – premium floating pill with progress ring */
+    #scroll-to-top {
+      opacity: 1; visibility: visible; border: none;
+      background: linear-gradient(145deg, rgba(18,18,18,0.95) 0%, rgba(8,8,8,0.98) 100%);
+      box-shadow: 0 4px 24px -4px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.04);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+    }
+    #scroll-to-top:hover {
+      transform: scale(1.1) translateY(-2px);
+      box-shadow: 0 12px 32px -8px rgba(249,115,22,0.35), 0 0 0 1px rgba(249,115,22,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    #scroll-to-top:active { transform: scale(1.02); }
     #scroll-to-top .progress-ring { transform: rotate(-90deg); }
-    #scroll-to-top .progress-ring__bg { stroke: rgba(255,255,255,0.1); }
-    #scroll-to-top .progress-ring__fill { stroke: #f97316; transition: stroke-dashoffset 0.1s ease; }
+    #scroll-to-top .progress-ring__bg { stroke: rgba(255,255,255,0.08); }
+    #scroll-to-top .progress-ring__fill {
+      stroke: url(#scroll-progress-gradient);
+      stroke-linecap: round;
+      transition: stroke-dashoffset 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #scroll-to-top .scroll-arrow { transition: transform 0.25s ease; }
+    #scroll-to-top:hover .scroll-arrow { transform: translateY(-2px); }
     .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.5rem; border-radius: 0.75rem; background: linear-gradient(135deg, #f97316 0%, #ea580c 40%, #0a0a0a 100%); color: #fff; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 14px -4px rgba(249,115,22,0.5); border: 1px solid rgba(249,115,22,0.4); }
     .btn-primary:hover { background: linear-gradient(135deg, #fb923c 0%, #f97316 40%, #1a1a1a 100%); box-shadow: 0 6px 20px -4px rgba(249,115,22,0.6); transform: translateY(-2px); }
     .btn-primary svg { width: 1rem; height: 1rem; flex-shrink: 0; }
@@ -114,6 +129,31 @@
     .plans-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 3px; }
     .plans-scroll::-webkit-scrollbar-thumb { background: #f97316; border-radius: 3px; }
     .plans-scroll::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+    /* Industries parallax section */
+    .industries-parallax-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assest/8.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    @media (min-width: 768px) {
+      .industries-parallax-bg { background-attachment: fixed; }
+    }
+    .industries-parallax-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(5,3,2,0.82) 40%, rgba(0,0,0,0.88) 100%);
+      pointer-events: none;
+    }
+    .industries-parallax-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 60% at 50% 20%, rgba(249,115,22,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
     /* Pricing table */
     .pricing-table { border-collapse: separate; border-spacing: 0; }
     .pricing-table th, .pricing-table td { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0.75rem 1rem; text-align: left; }
@@ -550,7 +590,7 @@
           <a href="tel:18552426660" class="flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Call">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
           </a>
-          <button id="menu-btn" class="flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Menu">
+          <button id="menu-btn" type="button" class="flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Menu" onclick="var m=document.getElementById('mobile-menu');var o=document.getElementById('menu-icon-open');var c=document.getElementById('menu-icon-close');if(m)m.classList.toggle('hidden');if(o)o.classList.toggle('hidden');if(c)c.classList.toggle('hidden');">
             <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
@@ -1188,6 +1228,57 @@
     </div>
   </section>
 
+  <!-- IT Support for 20+ Industries (parallax) -->
+  <section id="industries" class="industries-parallax-section py-20 md:py-28 relative overflow-hidden min-h-[720px] md:min-h-[780px] flex items-center">
+    <div class="industries-parallax-bg" aria-hidden="true"></div>
+    <div class="industries-parallax-overlay" aria-hidden="true"></div>
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-primary/15 text-primary text-xs font-semibold uppercase tracking-wider border border-primary/30 mb-4">Nationwide · 20+ Sectors</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-5">Trusted IT Support Across 20+ Industries & All 50 States</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto leading-relaxed text-lg">US-based experts lead your account, backed by a global team. You get a dedicated US tech lead who knows your business inside and out.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        <div class="group flex items-center gap-3 px-5 py-4 rounded-2xl bg-black/40 border border-gray-800 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300">
+          <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary"><i class="ri-briefcase-4-line text-lg"></i></span>
+          <span class="text-gray-300 group-hover:text-white text-sm font-medium">Accounting & Business Services</span>
+        </div>
+        <div class="group flex items-center gap-3 px-5 py-4 rounded-2xl bg-black/40 border border-gray-800 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300">
+          <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary"><i class="ri-bank-line text-lg"></i></span>
+          <span class="text-gray-300 group-hover:text-white text-sm font-medium">Advisory & Financial Services</span>
+        </div>
+        <div class="group flex items-center gap-3 px-5 py-4 rounded-2xl bg-black/40 border border-gray-800 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300">
+          <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary"><i class="ri-scales-3-line text-lg"></i></span>
+          <span class="text-gray-300 group-hover:text-white text-sm font-medium">Lawyers & Law Firms</span>
+        </div>
+        <div class="group flex items-center gap-3 px-5 py-4 rounded-2xl bg-black/40 border border-gray-800 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300">
+          <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary"><i class="ri-megaphone-line text-lg"></i></span>
+          <span class="text-gray-300 group-hover:text-white text-sm font-medium">Marketing & Advertising</span>
+        </div>
+        <div class="group flex items-center gap-3 px-5 py-4 rounded-2xl bg-black/40 border border-gray-800 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300">
+          <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary"><i class="ri-building-4-line text-lg"></i></span>
+          <span class="text-gray-300 group-hover:text-white text-sm font-medium">Real Estate</span>
+        </div>
+        <div class="group flex items-center gap-3 px-5 py-4 rounded-2xl bg-black/40 border border-gray-800 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300">
+          <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary"><i class="ri-tools-line text-lg"></i></span>
+          <span class="text-gray-300 group-hover:text-white text-sm font-medium">Construction</span>
+        </div>
+        <div class="group flex items-center gap-3 px-5 py-4 rounded-2xl bg-black/40 border border-gray-800 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300">
+          <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary"><i class="ri-user-search-line text-lg"></i></span>
+          <span class="text-gray-300 group-hover:text-white text-sm font-medium">Freelancers & Consultants</span>
+        </div>
+        <div class="group flex items-center gap-3 px-5 py-4 rounded-2xl bg-black/40 border border-gray-800 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300">
+          <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary"><i class="ri-heart-pulse-line text-lg"></i></span>
+          <span class="text-gray-300 group-hover:text-white text-sm font-medium">Medical & Dental</span>
+        </div>
+      </div>
+      <p class="text-gray-500 text-center text-sm mb-10">Plus many more sectors we serve.</p>
+      <div class="text-center">
+        <a href="#contact" class="btn-primary inline-flex items-center gap-2 shadow-lg shadow-primary/20">See how GeekSupport can help your business <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+      </div>
+    </div>
+  </section>
+
   <!-- How it works - Journey Tree -->
   <section class="how-it-works-section py-16 md:py-24 relative">
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
@@ -1787,15 +1878,24 @@
     </div>
   </div>
 
-  <!-- Scroll to top button -->
-  <button id="scroll-to-top" type="button" class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-black border-2 border-gray-800 hover:border-primary/50 shadow-xl hover:shadow-primary/20 transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary/50" aria-label="Scroll to top">
+  <!-- Scroll to top – floating pill, progress ring, hover lift -->
+  <button id="scroll-to-top" type="button" class="fixed bottom-8 right-8 z-[80] w-16 h-16 rounded-full flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2 focus:ring-offset-[#0a0a0a]" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     <span class="absolute inset-0 rounded-full overflow-hidden">
-      <svg class="progress-ring w-full h-full" viewBox="0 0 52 52" aria-hidden="true">
-        <circle class="progress-ring__bg" cx="26" cy="26" r="24" fill="none" stroke-width="2.5"/>
-        <circle id="scroll-progress-circle" class="progress-ring__fill" cx="26" cy="26" r="24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="150.8" stroke-dashoffset="150.8"/>
+      <svg class="progress-ring w-full h-full" viewBox="0 0 56 56" aria-hidden="true">
+        <defs>
+          <linearGradient id="scroll-progress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fbbf24"/>
+            <stop offset="50%" stop-color="#f97316"/>
+            <stop offset="100%" stop-color="#ea580c"/>
+          </linearGradient>
+        </defs>
+        <circle class="progress-ring__bg" cx="28" cy="28" r="25" fill="none" stroke-width="2.5"/>
+        <circle id="scroll-progress-circle" class="progress-ring__fill" cx="28" cy="28" r="25" fill="none" stroke-width="2.5" stroke-dasharray="157" stroke-dashoffset="157"/>
       </svg>
     </span>
-    <svg class="w-5 h-5 text-primary relative z-10 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+    <span class="scroll-arrow relative z-10 flex items-center justify-center w-8 h-8 rounded-full bg-primary/15 border border-primary/30 text-primary">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+    </span>
   </button>
 
   <script type="text/template" id="privacy-print-template"><!DOCTYPE html><html><head><title>Privacy Policy - Geek Expert LLC</title><style>body{font-family:system-ui,sans-serif;max-width:800px;margin:2rem auto;padding:0 1.5rem;color:#333;line-height:1.6;} h3{color:#111;margin-top:1.25em;} a{color:#f97316;} .print-title{font-size:1.5rem;font-weight:700;margin-bottom:0.25rem;} .print-subtitle{font-size:0.875rem;color:#666;margin-bottom:1.5rem;}</style></head><body><h1 class="print-title">Privacy Policy</h1><p class="print-subtitle">Your data privacy and security</p><div class="content">{{BODY}}</div></body></htm{{END}}</script>
@@ -2090,26 +2190,24 @@
       closeConsultationModal();
     });
 
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
+    var contactForm = document.getElementById('contact-form');
+    if (contactForm) contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       alert('Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.');
       this.reset();
     });
     (function() {
-      var btn = document.getElementById('scroll-to-top');
       var circle = document.getElementById('scroll-progress-circle');
-      var circumference = 2 * Math.PI * 24;
+      var circumference = 2 * Math.PI * 25;
       function updateScrollProgress() {
         var scrollY = window.scrollY || document.documentElement.scrollTop;
         var docHeight = document.documentElement.scrollHeight - window.innerHeight;
         if (docHeight <= 0) return;
         var progress = Math.min(scrollY / docHeight, 1);
-        circle.setAttribute('stroke-dashoffset', circumference * (1 - progress));
-        btn.classList.toggle('visible', scrollY > 300);
+        if (circle) circle.setAttribute('stroke-dashoffset', circumference * (1 - progress));
       }
       window.addEventListener('scroll', updateScrollProgress, { passive: true });
       updateScrollProgress();
-      btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     })();
     });
   </script>
