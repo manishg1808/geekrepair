@@ -272,11 +272,22 @@
     }
     .review-card-marquee {
       flex-shrink: 0;
-      width: 340px;
+      width: 260px;
+    }
+    .review-card-marquee .flex.items-center.justify-between { margin-bottom: 0.5rem; }
+    .review-card-marquee > div + p {
+      font-size: 0.75rem;
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .review-avatar {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 2rem;
+      height: 2rem;
       border-radius: 9999px;
       object-fit: cover;
       box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
@@ -292,8 +303,8 @@
       border: 1px solid rgba(249,115,22,0.3);
     }
     .review-avatar-emoji {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 2rem;
+      height: 2rem;
       border-radius: 9999px;
       background: rgba(249,115,22,0.15);
       display: flex;
@@ -303,7 +314,7 @@
       flex-shrink: 0;
     }
     @media (max-width: 640px) {
-      .review-card-marquee { width: 300px; }
+      .review-card-marquee { width: 220px; }
     }
     /* Why you'll love section - bg image */
     .love-section {
@@ -1500,36 +1511,36 @@
     </div>
 
     <!-- Reviews Section -->
-    <section id="reviews" class="relative py-16 md:py-20 section-gradient-diagonal overflow-hidden">
+    <section id="reviews" class="relative py-10 md:py-12 section-gradient-diagonal overflow-hidden">
       <div class="max-w-full mx-auto px-4 sm:px-6">
-        <p class="text-primary text-center text-sm font-medium uppercase tracking-[0.2em] mb-2">What our customers say</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">Customer Reviews</h2>
-        <p class="text-gray-400 text-center mb-4 max-w-2xl mx-auto">Real experiences from people who trusted Geek Repair for their IT & device support.</p>
-        <div class="flex items-center justify-center gap-4 mb-12 flex-wrap">
+        <p class="text-primary text-center text-xs font-medium uppercase tracking-[0.2em] mb-1">What our customers say</p>
+        <h2 class="text-xl md:text-2xl font-bold text-center text-white mb-2">Customer Reviews</h2>
+        <p class="text-gray-400 text-center text-sm mb-3 max-w-2xl mx-auto">Real experiences from people who trusted Geek Repair for their IT & device support.</p>
+        <div class="flex items-center justify-center gap-4 mb-8 flex-wrap">
           <div class="flex items-center gap-2">
             <div class="flex gap-0.5 text-primary text-lg">★★★★★</div>
-            <span class="text-white font-bold text-lg">4.9</span>
+            <span class="text-white font-bold text-lg">4.6</span>
           </div>
           <span class="text-gray-500">·</span>
           <span class="text-gray-400 text-sm">Google Reviews</span>
           <span class="text-gray-500">·</span>
           <span class="text-gray-400 text-sm">127 reviews</span>
         </div>
-        <div class="space-y-6 overflow-hidden">
+        <div class="space-y-4 overflow-hidden">
           <!-- Row 1: Cards 1-9 (duplicated for infinite loop) -->
           <div class="reviews-marquee-row overflow-hidden">
-            <div class="reviews-marquee-track flex gap-6">
+            <div class="reviews-marquee-track flex gap-4">
           <!-- Review 1 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">My laptop crashed right before a big presentation. Geek Repair had me back up and running in under an hour. The tech was professional and explained everything clearly. Highly recommend!</p>
             <div class="flex items-center gap-3">
-              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=michael&backgroundColor=f97316,ea580c" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=michael&backgroundColor=f97316,ea580c" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <div class="flex items-center gap-2 flex-wrap">
                   <p class="text-white font-semibold text-sm">Michael K.</p>
@@ -1540,16 +1551,16 @@
             </div>
           </div>
           <!-- Review 2 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1 items-center" aria-label="4.5 stars"><span class="text-primary">★★★★</span><span class="text-primary text-xs">½</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Wi-Fi was dead and I work from home. They fixed it remotely same day. Saved me from missing deadlines. Support team is responsive and know their stuff.</p>
             <div class="flex items-center gap-3">
-              <img src="https://i.pravatar.cc/80?img=12" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://i.pravatar.cc/80?img=12" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Sarah R.</p>
                 <p class="review-date text-xs">Tampa, FL · 5 days ago</p>
@@ -1557,10 +1568,10 @@
             </div>
           </div>
           <!-- Review 3 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
@@ -1577,16 +1588,16 @@
             </div>
           </div>
           <!-- Review 4 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1" aria-label="4 stars"><span class="text-primary">★★★★</span><span class="text-gray-600">★</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Phone screen was shattered. Got a same-day repair at a fair price. The tech even showed me how to use the new screen protector properly. Great service.</p>
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-teal-500/30 flex items-center justify-center text-teal-400 font-bold text-sm shrink-0">AP</div>
+              <div class="w-8 h-8 rounded-full bg-teal-500/30 flex items-center justify-center text-teal-400 font-bold text-sm shrink-0">AP</div>
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Amanda P.</p>
                 <p class="review-date text-xs">Miami, FL · 3 weeks ago</p>
@@ -1594,16 +1605,16 @@
             </div>
           </div>
           <!-- Review 5 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1" aria-label="4 stars"><span class="text-primary">★★★★</span><span class="text-gray-600">★</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Printer was acting up for weeks. One remote session and it’s been working perfectly since. No upselling, just honest help. Refreshing experience.</p>
             <div class="flex items-center gap-3">
-              <img src="https://i.pravatar.cc/80?img=33" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://i.pravatar.cc/80?img=33" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">David T.</p>
                 <p class="review-date text-xs">Fort Lauderdale, FL · 1 week ago</p>
@@ -1611,10 +1622,10 @@
             </div>
           </div>
           <!-- Review 6 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
@@ -1631,16 +1642,16 @@
             </div>
           </div>
           <!-- Review 7 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1 items-center" aria-label="4.5 stars"><span class="text-primary">★★★★</span><span class="text-primary text-xs">½</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">24/7 support is real. Had a malware scare at midnight. They walked me through removal step by step. Felt safe and in good hands the whole time.</p>
             <div class="flex items-center gap-3">
-              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=robert&backgroundColor=64748b,475569" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=robert&backgroundColor=64748b,475569" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Robert T.</p>
                 <p class="review-date text-xs">St. Petersburg, FL · 2 days ago</p>
@@ -1648,16 +1659,16 @@
             </div>
           </div>
           <!-- Review 8 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Our office has 15 computers. GeekPremium+ keeps everything running smoothly. Regular check-ins and proactive fixes. We barely have downtime anymore.</p>
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-rose-500/30 flex items-center justify-center text-rose-400 font-bold text-sm shrink-0">EW</div>
+              <div class="w-8 h-8 rounded-full bg-rose-500/30 flex items-center justify-center text-rose-400 font-bold text-sm shrink-0">EW</div>
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Elena W.</p>
                 <p class="review-date text-xs">Winter Park, FL · 2 months ago</p>
@@ -1665,16 +1676,16 @@
             </div>
           </div>
           <!-- Review 9 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1 items-center" aria-label="4.5 stars"><span class="text-primary">★★★★</span><span class="text-primary text-xs">½</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Laptop fan was loud and overheating. They cleaned it and replaced thermal paste. Runs like new now. Fair pricing and quick turnaround.</p>
             <div class="flex items-center gap-3">
-              <img src="https://i.pravatar.cc/80?img=52" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://i.pravatar.cc/80?img=52" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Brian H.</p>
                 <p class="review-date text-xs">Sanford, FL · 3 weeks ago</p>
@@ -1682,16 +1693,16 @@
             </div>
           </div>
           <!-- Duplicate Row 1 for seamless loop -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">My laptop crashed right before a big presentation. Geek Repair had me back up and running in under an hour. The tech was professional and explained everything clearly. Highly recommend!</p>
             <div class="flex items-center gap-3">
-              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=michael&backgroundColor=f97316,ea580c" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=michael&backgroundColor=f97316,ea580c" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <div class="flex items-center gap-2 flex-wrap">
                   <p class="text-white font-semibold text-sm">Michael K.</p>
@@ -1701,26 +1712,26 @@
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1 items-center" aria-label="4.5 stars"><span class="text-primary">★★★★</span><span class="text-primary text-xs">½</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Wi-Fi was dead and I work from home. They fixed it remotely same day. Saved me from missing deadlines. Support team is responsive and know their stuff.</p>
             <div class="flex items-center gap-3">
-              <img src="https://i.pravatar.cc/80?img=12" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://i.pravatar.cc/80?img=12" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Sarah R.</p>
                 <p class="review-date text-xs">Tampa, FL · 5 days ago</p>
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
@@ -1736,42 +1747,42 @@
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1" aria-label="4 stars"><span class="text-primary">★★★★</span><span class="text-gray-600">★</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Phone screen was shattered. Got a same-day repair at a fair price. The tech even showed me how to use the new screen protector properly. Great service.</p>
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-teal-500/30 flex items-center justify-center text-teal-400 font-bold text-sm shrink-0">AP</div>
+              <div class="w-8 h-8 rounded-full bg-teal-500/30 flex items-center justify-center text-teal-400 font-bold text-sm shrink-0">AP</div>
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Amanda P.</p>
                 <p class="review-date text-xs">Miami, FL · 3 weeks ago</p>
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1" aria-label="4 stars"><span class="text-primary">★★★★</span><span class="text-gray-600">★</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Printer was acting up for weeks. One remote session and it's been working perfectly since. No upselling, just honest help. Refreshing experience.</p>
             <div class="flex items-center gap-3">
-              <img src="https://i.pravatar.cc/80?img=33" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://i.pravatar.cc/80?img=33" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">David T.</p>
                 <p class="review-date text-xs">Fort Lauderdale, FL · 1 week ago</p>
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
@@ -1787,48 +1798,48 @@
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1 items-center" aria-label="4.5 stars"><span class="text-primary">★★★★</span><span class="text-primary text-xs">½</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">24/7 support is real. Had a malware scare at midnight. They walked me through removal step by step. Felt safe and in good hands the whole time.</p>
             <div class="flex items-center gap-3">
-              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=robert&backgroundColor=64748b,475569" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=robert&backgroundColor=64748b,475569" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Robert T.</p>
                 <p class="review-date text-xs">St. Petersburg, FL · 2 days ago</p>
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Our office has 15 computers. GeekPremium+ keeps everything running smoothly. Regular check-ins and proactive fixes. We barely have downtime anymore.</p>
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-rose-500/30 flex items-center justify-center text-rose-400 font-bold text-sm shrink-0">EW</div>
+              <div class="w-8 h-8 rounded-full bg-rose-500/30 flex items-center justify-center text-rose-400 font-bold text-sm shrink-0">EW</div>
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Elena W.</p>
                 <p class="review-date text-xs">Winter Park, FL · 2 months ago</p>
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1 items-center" aria-label="4.5 stars"><span class="text-primary">★★★★</span><span class="text-primary text-xs">½</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Laptop fan was loud and overheating. They cleaned it and replaced thermal paste. Runs like new now. Fair pricing and quick turnaround.</p>
             <div class="flex items-center gap-3">
-              <img src="https://i.pravatar.cc/80?img=52" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://i.pravatar.cc/80?img=52" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Brian H.</p>
                 <p class="review-date text-xs">Sanford, FL · 3 weeks ago</p>
@@ -1839,14 +1850,14 @@
       </div>
           <!-- Row 2: Cards 10-17 (duplicated for infinite loop) -->
           <div class="reviews-marquee-row overflow-hidden">
-            <div class="reviews-marquee-track flex gap-6">
+            <div class="reviews-marquee-track flex gap-4">
           <!-- Review 10 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1" aria-label="4 stars"><span class="text-primary">★★★★</span><span class="text-gray-600">★</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Free consultation was actually helpful. No pressure to buy. They diagnosed the issue and gave me options. Ended up signing up and glad I did.</p>
             <div class="flex items-center gap-3">
@@ -1858,16 +1869,16 @@
             </div>
           </div>
           <!-- Review 11 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Tablet wouldn’t charge. Fixed in one visit. They explained the cause and how to avoid it in future. Appreciate the education, not just the repair.</p>
             <div class="flex items-center gap-3">
-              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=jennifer&backgroundColor=c026d3,a21caf" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=jennifer&backgroundColor=c026d3,a21caf" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Jennifer F.</p>
                 <p class="review-date text-xs">Altamonte Springs, FL · 6 days ago</p>
@@ -1875,16 +1886,16 @@
             </div>
           </div>
           <!-- Review 12 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1" aria-label="4 stars"><span class="text-primary">★★★★</span><span class="text-gray-600">★</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Router kept dropping connection. Tech configured everything properly and added a mesh setup. House full of devices, zero problems now. Great work.</p>
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm shrink-0">MS</div>
+              <div class="w-8 h-8 rounded-full bg-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm shrink-0">MS</div>
               <div class="min-w-0">
                 <div class="flex items-center gap-2 flex-wrap">
                   <p class="text-white font-semibold text-sm">Marcus S.</p>
@@ -1895,16 +1906,16 @@
             </div>
           </div>
           <!-- Review 13 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1 items-center" aria-label="4.5 stars"><span class="text-primary">★★★★</span><span class="text-primary text-xs">½</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Got a virus from a phishing email. Geek Repair removed it and set up better security. No more pop-ups or sluggish performance. Very grateful.</p>
             <div class="flex items-center gap-3">
-              <img src="https://i.pravatar.cc/80?img=47" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://i.pravatar.cc/80?img=47" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Linda P.</p>
                 <p class="review-date text-xs">Casselberry, FL · 3 days ago</p>
@@ -1912,10 +1923,10 @@
             </div>
           </div>
           <!-- Review 14 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
@@ -1929,16 +1940,16 @@
             </div>
           </div>
           <!-- Review 15 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1 items-center" aria-label="4.5 stars"><span class="text-primary">★★★★</span><span class="text-primary text-xs">½</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Multiple printers in our clinic. Geek Repair got them all networked and working. Staff can print from any workstation now. Huge time saver.</p>
             <div class="flex items-center gap-3">
-              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=rachel&backgroundColor=7c3aed,6d28d9" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=rachel&backgroundColor=7c3aed,6d28d9" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Rachel D.</p>
                 <p class="review-date text-xs">Longwood, FL · 1 month ago</p>
@@ -1946,16 +1957,16 @@
             </div>
           </div>
           <!-- Review 16 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1" aria-label="4 stars"><span class="text-primary">★★★★</span><span class="text-gray-600">★</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Older desktop was slow. They upgraded RAM and SSD, cleaned the system. Feels like a new computer. Reasonable cost and friendly support.</p>
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm shrink-0">JV</div>
+              <div class="w-8 h-8 rounded-full bg-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm shrink-0">JV</div>
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Jason V.</p>
                 <p class="review-date text-xs">Apopka, FL · 8 days ago</p>
@@ -1963,10 +1974,10 @@
             </div>
           </div>
           <!-- Review 17 -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
@@ -1980,12 +1991,12 @@
             </div>
           </div>
           <!-- Duplicate Row 2 for seamless loop -->
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1" aria-label="4 stars"><span class="text-primary">★★★★</span><span class="text-gray-600">★</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Free consultation was actually helpful. No pressure to buy. They diagnosed the issue and gave me options. Ended up signing up and glad I did.</p>
             <div class="flex items-center gap-3">
@@ -1996,32 +2007,32 @@
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Tablet wouldn't charge. Fixed in one visit. They explained the cause and how to avoid it in future. Appreciate the education, not just the repair.</p>
             <div class="flex items-center gap-3">
-              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=jennifer&backgroundColor=c026d3,a21caf" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=jennifer&backgroundColor=c026d3,a21caf" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Jennifer F.</p>
                 <p class="review-date text-xs">Altamonte Springs, FL · 6 days ago</p>
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1" aria-label="4 stars"><span class="text-primary">★★★★</span><span class="text-gray-600">★</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Router kept dropping connection. Tech configured everything properly and added a mesh setup. House full of devices, zero problems now. Great work.</p>
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm shrink-0">MS</div>
+              <div class="w-8 h-8 rounded-full bg-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm shrink-0">MS</div>
               <div class="min-w-0">
                 <div class="flex items-center gap-2 flex-wrap">
                   <p class="text-white font-semibold text-sm">Marcus S.</p>
@@ -2031,26 +2042,26 @@
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1 items-center" aria-label="4.5 stars"><span class="text-primary">★★★★</span><span class="text-primary text-xs">½</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Got a virus from a phishing email. Geek Repair removed it and set up better security. No more pop-ups or sluggish performance. Very grateful.</p>
             <div class="flex items-center gap-3">
-              <img src="https://i.pravatar.cc/80?img=47" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://i.pravatar.cc/80?img=47" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Linda P.</p>
                 <p class="review-date text-xs">Casselberry, FL · 3 days ago</p>
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
@@ -2063,42 +2074,42 @@
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1 items-center" aria-label="4.5 stars"><span class="text-primary">★★★★</span><span class="text-primary text-xs">½</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Multiple printers in our clinic. Geek Repair got them all networked and working. Staff can print from any workstation now. Huge time saver.</p>
             <div class="flex items-center gap-3">
-              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=rachel&backgroundColor=7c3aed,6d28d9" alt="" class="review-avatar" width="40" height="40" loading="lazy">
+              <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=rachel&backgroundColor=7c3aed,6d28d9" alt="" class="review-avatar" width="32" height="32" loading="lazy">
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Rachel D.</p>
                 <p class="review-date text-xs">Longwood, FL · 1 month ago</p>
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
-              <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
+              <div class="flex gap-1" aria-label="4 stars"><span class="text-primary">★★★★</span><span class="text-gray-600">★</span></div>
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-4">Older desktop was slow. They upgraded RAM and SSD, cleaned the system. Feels like a new computer. Reasonable cost and friendly support.</p>
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm shrink-0">JV</div>
+              <div class="w-8 h-8 rounded-full bg-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm shrink-0">JV</div>
               <div class="min-w-0">
                 <p class="text-white font-semibold text-sm">Jason V.</p>
                 <p class="review-date text-xs">Apopka, FL · 8 days ago</p>
               </div>
             </div>
           </div>
-          <div class="review-card-marquee why-choose-card relative rounded-2xl border border-white/5 p-6 hover:border-primary/25">
+          <div class="review-card-marquee why-choose-card relative rounded-xl border border-white/5 p-4 hover:border-primary/25">
             <div class="flex items-center justify-between mb-3">
-              <span class="w-7 h-7 flex items-center justify-center shrink-0" title="Google Review">
-                <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="w-6 h-6 flex items-center justify-center shrink-0" title="Google Review">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
               </span>
               <div class="flex gap-1 text-primary" aria-label="5 stars">★★★★★</div>
             </div>
