@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expert IT & Device Repair Services | Geek Repair</title>
   <meta name="description" content="Geek Repair provides professional IT and device repair services including laptop, phone, Wi-Fi, printer repair and 24/7 support for home and business users.">
-  <meta name="keywords" content="IT support services,geek repair, device repair, laptop repair, smartphone repair, Wi-Fi troubleshooting, printer installation, data recovery, remote support, Geek">
+  <meta name="keywords" content="IT support services, geek, geek repair, wifi repair, iphone repair, geek near service center  , device repair, laptop repair, smartphone repair, Wi-Fi troubleshooting, printer installation, data recovery, remote support, Geek">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%92</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -164,6 +164,17 @@
     .pricing-table .check { color: #22c55e; }
     .pricing-table .dash { color: #6b7280; }
     body { overflow-x: hidden; }
+    /* Mobile menu & touch targets */
+    @media (max-width: 1023px) {
+      #mobile-menu { -webkit-overflow-scrolling: touch; }
+      #menu-btn { touch-action: manipulation; }
+    }
+    /* Responsive: prevent horizontal overflow on small screens */
+    @media (max-width: 640px) {
+      .overflow-hidden { overflow-x: hidden; }
+      img { max-width: 100%; height: auto; }
+      .pricing-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    }
     /* Why Choose Geek Repair cards - premium */
     .why-choose-card {
       background: linear-gradient(160deg, rgba(18,18,18,0.98) 0%, rgba(8,8,8,0.99) 50%, rgba(15,12,10,0.98) 100%);
@@ -411,6 +422,19 @@
       padding-top: 5rem;
       border-radius: 1.25rem 1.25rem 0 0;
       box-shadow: 0 -12px 40px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06), 0 16px 48px -16px rgba(249,115,22,0.12), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    /* Mobile: show full "Comprehensive Technical Support" content first, then overlap */
+    @media (max-width: 767px) {
+      .overlap-scroll-wrapper .overlap-scroll-panel:first-of-type {
+        position: relative;
+        margin-bottom: 0;
+        padding-bottom: 2rem;
+      }
+      .overlap-scroll-wrapper .overlap-scroll-panel:last-of-type {
+        padding-top: 2rem;
+        margin-top: -1rem;
+      }
+      .overlap-sticky-heading { position: relative; }
     }
     /* First section heading – sticky so it stays visible when second section scrolls */
     .overlap-sticky-heading {
@@ -849,7 +873,7 @@
     </div>
   </div>
   <!-- Navbar -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-gray-800/80 shadow-lg">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-gray-800/80 shadow-lg overflow-x-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 md:h-[72px]">
         <a href="#home" class="flex items-center gap-3 shrink-0">
@@ -882,14 +906,14 @@
           <a href="tel:18552426660" class="flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Call">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
           </a>
-          <button id="menu-btn" class="flex items-center justify-center w-11 h-11 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition" aria-label="Menu">
-            <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          <button type="button" id="menu-btn" class="flex items-center justify-center w-11 h-11 min-h-[44px] min-w-[44px] rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 hover:text-primary hover:border-primary/50 transition cursor-pointer touch-manipulation" style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg id="menu-icon-open" class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="menu-icon-close" class="w-5 h-5 hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-800/80 bg-black/98">
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-800/80 bg-black/98 max-h-[calc(100vh-4rem)] overflow-y-auto overflow-x-hidden" role="navigation" aria-label="Mobile menu">
       <div class="max-w-7xl mx-auto px-4 py-4 space-y-0.5">
         <a href="#services" class="flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-300 hover:bg-white/5 hover:text-primary transition font-medium">Services</a>
         <a href="#pricing" class="flex items-center gap-3 px-4 py-3.5 rounded-xl text-gray-300 hover:bg-white/5 hover:text-primary transition font-medium" onclick="var m=document.getElementById('pricing-modal');if(m){m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';} return false;">Pricing</a>
@@ -918,7 +942,7 @@
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
           <p class="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-6 border border-primary/30">IT Support That Scales</p>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] mb-6 text-white">Complete IT Support for Small to Medium Organizations</h1>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] mb-6 text-white">Complete IT Support for Small to Medium Organizations</h1>
           <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed">We take full responsibility for your IT management so your business can operate efficiently and securely.</p>
           <div class="flex flex-wrap gap-4">
             <button type="button" class="open-consultation-modal btn-primary cursor-pointer">
@@ -1183,14 +1207,14 @@
   <!-- CTA Banner -->
   <section class="py-16 md:py-20 section-gradient-diagonal">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="relative it-support-cta rounded-3xl overflow-hidden border border-primary/40 px-8 py-12 md:px-14 md:py-16 text-center md:text-left">
+      <div class="relative it-support-cta rounded-3xl overflow-hidden border border-primary/40 px-4 py-10 sm:px-6 sm:py-12 md:px-14 md:py-16 text-center md:text-left">
         <div class="relative z-10 grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
           <div>
             <span class="cta-chip inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-white/90 text-xs font-semibold uppercase tracking-widest mb-4">
               <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-lg shadow-emerald-400/40"></span>
               Always On Support
             </span>
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Get Unlimited IT Support</h2>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">Get Unlimited IT Support</h2>
             <p class="text-white/85 text-base md:text-lg mb-6">Starting at $75/month per user • Minimum of 3 users</p>
             <div class="flex flex-wrap gap-3 justify-center md:justify-start">
               <span class="px-3 py-2 rounded-xl bg-black/30 border border-white/15 text-white/90 text-xs font-semibold">24/7 Helpdesk</span>
@@ -1226,7 +1250,7 @@
     <section class="overlap-scroll-panel" id="section-devices">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
-        <div>
+        <div class="order-2 lg:order-1">
           <p class="text-gray-400 mb-6">You & your business rely on these—we've got you covered.</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="device-card flex items-center gap-3 rounded-2xl p-4">
@@ -1299,7 +1323,7 @@
             </div>
           </div>
         </div>
-        <div class="relative flex justify-center lg:justify-end">
+        <div class="relative flex justify-center lg:justify-end order-1 lg:order-2">
           <img src="assest/5.png" alt="Geek Repair - Your Tech, Fixed" class="w-full max-w-md object-contain" loading="lazy" />
         </div>
       </div>
@@ -2490,51 +2514,6 @@
     </div>
   </div>
 
-  <!-- Call Back Request Modal -->
-  <div id="callback-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" aria-hidden="true" aria-modal="true" role="dialog">
-    <div class="modal-backdrop absolute inset-0" data-close-callback-modal></div>
-    <div class="modal-panel relative w-full max-w-md rounded-3xl bg-gradient-to-br from-[#0a0a0a] via-[#0d0805] to-[#0a0a0a] border-2 border-primary/30 overflow-hidden flex flex-col">
-      <div class="relative px-6 py-5 border-b border-primary/20 shrink-0 bg-gradient-to-r from-black/80 via-[#0d0805]/80 to-black/80 backdrop-blur-sm">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.08),transparent)]"></div>
-        <div class="relative flex items-center justify-between gap-4">
-          <div class="flex items-center gap-3">
-            <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 text-primary">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            </span>
-            <div>
-              <h2 class="text-xl font-bold text-white tracking-tight">Call Back Request</h2>
-              <p class="text-xs text-gray-400 mt-0.5">We'll call you back at your convenience</p>
-            </div>
-          </div>
-          <button type="button" id="callback-modal-close" class="flex items-center justify-center w-11 h-11 rounded-xl text-gray-400 hover:text-white hover:bg-primary/20 hover:border-primary/40 border border-transparent transition-all duration-200" aria-label="Close">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
-      </div>
-      <div class="modal-body overflow-y-auto flex-1 px-6 py-6 sm:px-8 sm:py-8">
-        <form id="callback-form" class="space-y-4">
-          <div>
-            <label for="callback-name" class="block text-sm font-medium text-gray-300 mb-1.5">Name *</label>
-            <input type="text" id="callback-name" name="name" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-          </div>
-          <div>
-            <label for="callback-phone" class="block text-sm font-medium text-gray-300 mb-1.5">Phone Number *</label>
-            <input type="tel" id="callback-phone" name="phone" required placeholder="e.g. 1-855-242-6660" class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-          </div>
-          <div>
-            <label for="callback-email" class="block text-sm font-medium text-gray-300 mb-1.5">Email *</label>
-            <input type="email" id="callback-email" name="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-          </div>
-          <div>
-            <label for="callback-message" class="block text-sm font-medium text-gray-300 mb-1.5">Issues Message *</label>
-            <textarea id="callback-message" name="message" rows="3" required placeholder="Describe your issue or reason for callback..." class="w-full px-4 py-3 rounded-xl bg-darkCard border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"></textarea>
-          </div>
-          <button type="submit" class="btn-primary w-full justify-center">Request Call Back</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
   <!-- Privacy Policy Modal -->
   <div id="privacy-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" aria-hidden="true" aria-modal="true" role="dialog">
     <div class="modal-backdrop absolute inset-0" data-close-modal onclick="closeModal('privacy-modal')" style="cursor:pointer"></div>
@@ -2742,7 +2721,7 @@
       </div>
       <div class="modal-body overflow-y-auto flex-1 px-4 sm:px-6 py-4 sm:py-6">
         <p class="text-gray-400 text-sm mb-4">GeekSupport offers comprehensive IT support plans. GeekPremiumMB: $225/month for micro businesses (up to 3 employees). Compare all features below.</p>
-        <div class="overflow-x-auto rounded-xl border border-primary/20">
+        <div class="pricing-table-wrapper overflow-x-auto rounded-xl border border-primary/20">
           <table class="pricing-table w-full min-w-[800px] text-sm">
             <thead>
               <tr class="border-b border-primary/30">
@@ -2939,30 +2918,41 @@
         }
       }
     });
-    var menuBtn = document.getElementById('menu-btn');
-    if (menuBtn) {
-      menuBtn.addEventListener('click', function() {
-        var menu = document.getElementById('mobile-menu');
-        var openIcon = document.getElementById('menu-icon-open');
-        var closeIcon = document.getElementById('menu-icon-close');
+    (function initMobileMenu() {
+      var menuBtn = document.getElementById('menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var openIcon = document.getElementById('menu-icon-open');
+      var closeIcon = document.getElementById('menu-icon-close');
+      var lastToggle = 0;
+      function toggleMenu() {
+        var now = Date.now();
+        if (now - lastToggle < 350) return;
+        lastToggle = now;
         if (menu) menu.classList.toggle('hidden');
         if (openIcon) openIcon.classList.toggle('hidden');
         if (closeIcon) closeIcon.classList.toggle('hidden');
-      });
-    }
-    var mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenu) {
-      mobileMenu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          var m = document.getElementById('mobile-menu');
-          var o = document.getElementById('menu-icon-open');
-          var c = document.getElementById('menu-icon-close');
-          if (m) m.classList.add('hidden');
-          if (o) o.classList.remove('hidden');
-          if (c) c.classList.add('hidden');
+        if (menuBtn) menuBtn.setAttribute('aria-expanded', menu && !menu.classList.contains('hidden') ? 'true' : 'false');
+      }
+      function closeMenu() {
+        if (menu && !menu.classList.contains('hidden')) {
+          menu.classList.add('hidden');
+          if (openIcon) openIcon.classList.remove('hidden');
+          if (closeIcon) closeIcon.classList.add('hidden');
+          if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+      if (menuBtn) {
+        menuBtn.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); toggleMenu(); });
+        menuBtn.addEventListener('touchend', function(e) { e.preventDefault(); toggleMenu(); }, { passive: false });
+      }
+      if (menu) {
+        menu.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', closeMenu);
         });
-      });
-    }
+        var scheduleBtn = menu.querySelector('.open-consultation-modal');
+        if (scheduleBtn) scheduleBtn.addEventListener('click', closeMenu);
+      }
+    })();
 
     // Privacy Policy modal
     var privacyModal = document.getElementById('privacy-modal');
@@ -3077,34 +3067,6 @@
     pricingModal.querySelector('[data-close-pricing-modal]').addEventListener('click', closePricingModal);
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && pricingModal.classList.contains('open')) closePricingModal();
-    });
-
-    // Call Back Request modal
-    var callbackModal = document.getElementById('callback-modal');
-    var callbackModalClose = document.getElementById('callback-modal-close');
-    function openCallbackModal() {
-      callbackModal.classList.add('open');
-      callbackModal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      document.getElementById('mobile-menu').classList.add('hidden');
-      document.getElementById('menu-icon-open').classList.remove('hidden');
-      document.getElementById('menu-icon-close').classList.add('hidden');
-    }
-    function closeCallbackModal() {
-      callbackModal.classList.remove('open');
-      callbackModal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-    callbackModalClose.addEventListener('click', closeCallbackModal);
-    callbackModal.querySelector('[data-close-callback-modal]').addEventListener('click', closeCallbackModal);
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && callbackModal.classList.contains('open')) closeCallbackModal();
-    });
-    document.getElementById('callback-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you! We\'ll call you back as soon as possible at your preferred time.');
-      this.reset();
-      closeCallbackModal();
     });
 
     // Schedule Free Consultation modal (contact form popup)
