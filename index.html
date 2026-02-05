@@ -423,18 +423,18 @@
       border-radius: 1.25rem 1.25rem 0 0;
       box-shadow: 0 -12px 40px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06), 0 16px 48px -16px rgba(249,115,22,0.12), inset 0 1px 0 rgba(255,255,255,0.04);
     }
-    /* Mobile: show full "Comprehensive Technical Support" content first, then overlap */
+    /* Mobile: only Devices+Benefits wrapper – show full content first, then overlap */
     @media (max-width: 767px) {
-      .overlap-scroll-wrapper .overlap-scroll-panel:first-of-type {
+      .overlap-scroll-wrapper--content-first-mobile .overlap-scroll-panel:first-of-type {
         position: relative;
         margin-bottom: 0;
         padding-bottom: 2rem;
       }
-      .overlap-scroll-wrapper .overlap-scroll-panel:last-of-type {
+      .overlap-scroll-wrapper--content-first-mobile .overlap-scroll-panel:last-of-type {
         padding-top: 2rem;
         margin-top: -1rem;
       }
-      .overlap-sticky-heading { position: relative; }
+      .overlap-scroll-wrapper--content-first-mobile .overlap-sticky-heading { position: relative; }
     }
     /* First section heading – sticky so it stays visible when second section scrolls */
     .overlap-sticky-heading {
@@ -1238,8 +1238,8 @@
     </div>
   </section>
 
-  <!-- Overlap scroll: Devices + Benefits (layered section reveal) -->
-  <div class="overlap-scroll-wrapper section-gradient-diagonal-2 pt-8 md:pt-12 pb-12 md:pb-16">
+  <!-- Overlap scroll: Devices + Benefits (on mobile: full content first, then overlap) -->
+  <div class="overlap-scroll-wrapper overlap-scroll-wrapper--content-first-mobile section-gradient-diagonal-2 pt-8 md:pt-12 pb-12 md:pb-16">
     <div class="overlap-sticky-heading">
       <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-xs font-semibold uppercase tracking-widest mb-2">
         <i class="ri-shield-check-line"></i>

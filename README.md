@@ -10,6 +10,7 @@
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
 - [Features & Work Done (Start to End)](#features--work-done-start-to-end)
+- [Responsive & Mobile](#18-responsive--mobile)
 - [Flowcharts & Diagrams](#flowcharts--diagrams)
 - [How to Run](#how-to-run)
 - [Contact & Legal](#contact--legal)
@@ -64,7 +65,7 @@ geekrepair-main/
 
 - **Fixed navbar** with logo, links (Services, Pricing, Contact, Home), Privacy Policy, Terms & Conditions.
 - **Phone CTA**: `1-855-242-6660` (desktop + mobile).
-- **Mobile menu**: Hamburger toggle, full-width dropdown with same links + “Free Schedule” button.
+- **Mobile menu**: Hamburger toggle (works on both **touch and click**), full-width dropdown with same links + “Free Schedule” button. Menu is scrollable on small screens (`max-height` + overflow). Toggle uses `type="button"`, `touch-action: manipulation`, and proper `aria-expanded` / `aria-controls` for accessibility. Menu closes when a link or “Free Schedule” is clicked.
 - **Smooth scroll** for in-page anchors.
 
 ### 2. Hero Section (`#home`)
@@ -109,16 +110,19 @@ geekrepair-main/
 - Badges: 24/7 Helpdesk, Remote + Onsite, Certified Techs.
 - **“Schedule FREE consultation”** button opening consultation modal.
 
-### 7. Devices Section
+### 7. Devices Section (Comprehensive Technical Support for Every Device)
 
 - **Device coverage** list: Wi‑Fi, Printers, Laptops, PC/Mac, Tablets, iOS/Android, Network Setup, Servers, Cloud, Storage, Security Cameras, Scanners, Projectors, Peripherals.
 - **Image** (assest/5.png) and device cards with icons (Remix Icon).
+- **Overlap scroll**: This section and “Benefits of Outsourcing” sit inside an **overlap-scroll wrapper**. On **mobile and desktop**, the heading is sticky; the first panel (Devices) sticks while the second panel (Benefits) overlaps on scroll.
+- **Mobile order**: On small screens, the image appears **first**, then the device cards and text below.
 
 ### 8. Benefits of Outsourcing IT
 
 - **6 benefit cards**: Dedicated IT Team, Modern Technology, Service Automation, Quick Remote Response, Flat Pricing, Safe & Secure.
 - **Two overlapping images** (assest/6.png, 7.png) with labels “Dedicated Team”, “Secure & Scalable”.
 - “Business-grade protection” strip below images.
+- **Overlap scroll**: On mobile and desktop, this section overlaps the “Comprehensive Technical Support” section (second panel in the same wrapper).
 
 ### 9. Plans Section (`#plans`)
 
@@ -138,6 +142,7 @@ geekrepair-main/
 - “Trusted IT Support Across 20+ Industries & All 50 States”.
 - **8 industry chips**: Accounting & Business Services, Advisory & Financial, Lawyers & Law Firms, Marketing & Advertising, Real Estate, Construction, Freelancers & Consultants, Medical & Dental.
 - CTA: “See how GeekSupport can help your business”.
+- **Overlap scroll**: This section and “How It Works” sit in a second **overlap-scroll wrapper**. On **mobile and desktop**, the Industries panel sticks and “How It Works” overlaps on scroll.
 
 ### 12. How It Works (Journey Tree)
 
@@ -182,6 +187,15 @@ geekrepair-main/
 - Smooth scroll, focus states, `aria-hidden` / `aria-modal` / `role="dialog"` on modals.
 - Semantic sections and headings.
 - Responsive breakpoints (mobile, tablet, desktop) for layout and nav.
+
+### 18. Responsive & Mobile
+
+- **Mobile menu**: Toggle works on touch and click; 44px min touch target; `touch-action: manipulation` to reduce tap delay; menu closes on link/schedule click.
+- **Sections**: All sections use responsive spacing and typography (e.g. hero `text-3xl` → `lg:text-6xl`). CTA banner and hero padding scale for small screens. Nav and body use `overflow-x: hidden` to avoid horizontal scroll.
+- **Overlap sections (mobile)**:
+  - **Devices + Benefits**: “Comprehensive Technical Support for Every Device” and “Benefits of Outsourcing Your IT Support” both show in the **overlap** (sticky heading, first panel sticky, second panel overlaps).
+  - **Industries + How It Works**: “Trusted IT Support Across 20+ Industries & All 50 States” and “How It Works” both show in the **overlap** (same sticky/overlap behavior).
+- **Pricing table** (in Pricing modal): Horizontal scroll on small screens (`overflow-x: auto`, touch scrolling). Images use `max-width: 100%` to prevent overflow.
 
 ---
 
@@ -388,4 +402,4 @@ sequenceDiagram
 
 ## Summary
 
-This project is a **single-page marketing site** for Geek Repair IT support. It includes **navigation, hero, 14 services, multiple “why us” and benefits sections, device coverage, three pricing plans, industries, a 3-step “How it works” journey, contact form, footer, and five modals** (consultation, callback, privacy, terms, pricing). The **flowcharts and diagrams** above describe the page flow, user journey, modal/CTA behavior, plans structure, and high-level architecture. All work from start to end is captured in the [Features & Work Done](#features--work-done-start-to-end) section.
+This project is a **single-page marketing site** for Geek Repair IT support. It includes **navigation, hero, 14 services, multiple “why us” and benefits sections, device coverage (with overlap scroll), three pricing plans, industries (with overlap scroll), a 3-step “How it works” journey, contact form, footer, and five modals** (consultation, callback, privacy, terms, pricing). **Mobile experience**: working hamburger menu (touch + click), responsive sections, overlap scroll for both “Devices + Benefits” and “Industries + How It Works,” image-first order in the Devices section on mobile, and scrollable pricing table in modals. The **flowcharts and diagrams** above describe the page flow, user journey, modal/CTA behavior, plans structure, and high-level architecture. All work from start to end is captured in the [Features & Work Done](#features--work-done-start-to-end) section.
