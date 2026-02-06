@@ -65,6 +65,7 @@ geekrepair-main/
 
 - **Fixed navbar** with logo, links (Services, Pricing, Contact, Home), Privacy Policy, Terms & Conditions.
 - **Phone CTA**: `1-855-242-6660` (desktop + mobile).
+- **Email icon button**: Added email icon button next to call button in navbar (both desktop and mobile). Clicking opens email client with `mailto:support@geekrepairllc.com`. Desktop shows icon in a small box (9×9), mobile shows icon button (11×11) matching call button style.
 - **Mobile menu**: Hamburger toggle (works on both **touch and click**), full-width dropdown with same links + “Free Schedule” button. Menu is scrollable on small screens (`max-height` + overflow). Toggle uses `type="button"`, `touch-action: manipulation`, and proper `aria-expanded` / `aria-controls` for accessibility. Menu closes when a link or “Free Schedule” is clicked.
 - **Smooth scroll** for in-page anchors.
 
@@ -108,7 +109,7 @@ geekrepair-main/
 
 - **$75/user/month** (min 3 users).
 - Badges: 24/7 Helpdesk, Remote + Onsite, Certified Techs.
-- **“Schedule FREE consultation”** button opening consultation modal.
+- **“Schedule FREE consultation”** button navigates to Contact section (`#contact`) for direct access to contact form and information.
 
 ### 7. Devices Section (Comprehensive Technical Support for Every Device)
 
@@ -127,9 +128,9 @@ geekrepair-main/
 ### 9. Plans Section (`#plans`)
 
 - **Three plans**:
-  - **PremiumMB**: $225/month, up to 3 users (micro business).
-  - **Premium** (Most Popular): $75/month per person, 4+ users – help desk, remote/onsite, backups, monitoring, security.
-  - **Premium+**: $95/month per person – all Premium + MDM, Procurement, Data Compliance, Virtual CIO (4+ seats).
+  - **PremiumMB**: $225/month, up to 3 users (micro business). "Get Started" button links to Contact section.
+  - **Premium** (Most Popular): $75/month per person, 4+ users – help desk, remote/onsite, backups, monitoring, security. **"Learn More" button triggers phone call** (`tel:18552426660`).
+  - **Premium+**: $95/month per person – all Premium + MDM, Procurement, Data Compliance, Virtual CIO (4+ seats). **"Learn More" button triggers phone call** (`tel:18552426660`).
 - “Learn More About Pricing” links to **Pricing modal**.
 
 ### 10. Who We Are
@@ -155,7 +156,7 @@ geekrepair-main/
 ### 13. Contact Section (`#contact`)
 
 - **Form**: First Name, Last Name, Email, Phone, Company Name, Company Size, Service Interest, Message.
-- **Contact blocks**: Quick Connect (phone 1-855-242-6660), Email (support@geeksupportllc.com), Business Hours (Mon–Sat 8–6, Sun closed), Office Address (4307 Vineland Rd, Suite H-12, Orlando, FL 32811).
+- **Contact blocks**: Quick Connect (phone 1-855-242-6660), Email (support@geekrepairllc.com), Business Hours (Mon–Sat 8–6, Sun closed), Office Address (4307 Vineland Rd, Suite H-12, Orlando, FL 32811).
 - Submit shows thank-you alert (form reset).
 
 ### 14. Footer
@@ -391,7 +392,7 @@ sequenceDiagram
 | | |
 |--|--|
 | **Phone** | 1-855-242-6660 (24/7) |
-| **Email** | support@geeksupportllc.com |
+| **Email** | support@geekrepairllc.com |
 | **Address** | 4307 Vineland Rd, Suite H-12, Orlando, FL 32811 |
 | **Hours** | Mon–Sat 8:00 AM – 6:00 PM; Sunday closed |
 
